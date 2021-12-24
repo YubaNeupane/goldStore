@@ -14,6 +14,10 @@ import BlurView from "@react-native-community/blur";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 
+const defaultHeaderOptions = {
+  headerTintColor: "black",
+};
+
 const GoldNavigator = createStackNavigator({
   Shop: {
     screen: GoldShop,
@@ -33,12 +37,15 @@ const CategoriesNavigation = createStackNavigator({
   },
 });
 
-const DetailsNavigation = createStackNavigator({
-  ItemDetail: {
-    screen: StoreDetails,
-    navigationOptions: { headerTitle: "Details" },
+const DetailsNavigation = createStackNavigator(
+  {
+    ItemDetail: {
+      screen: StoreDetails,
+      navigationOptions: { headerTitle: "Details" },
+    },
   },
-});
+  defaultHeaderOptions
+);
 
 const SearchNavigation = createStackNavigator({
   Search: {
@@ -121,12 +128,12 @@ const GoldBottomNavigation = createBottomTabNavigator(
       showIcon: true,
       showLabel: true,
       style: {
-        backgroundColor: "rgba(0,0,0,0.1)",
-        position: "absolute",
-        borderTopWidth: 0,
-        shadowColor: "black",
-        shadowRadius: 1,
-        shadowOffset: { width: 0, height: 5 },
+        // backgroundColor: "rgba(255,255,255,0.8)",
+        // position: "absolute",
+        // borderTopWidth: 0,
+        // shadowColor: "black",
+        // shadowRadius: 1,
+        // shadowOffset: { width: 0, height: 5 },
         // left: 50,
         // right: 50,
         // bottom: 20,
