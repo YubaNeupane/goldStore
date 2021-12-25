@@ -13,6 +13,7 @@ import BlurView from "@react-native-community/blur";
 
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
+import ShoppingCartScreen from "../Screens/ShoppingCartScreen";
 
 const defaultHeaderOptions = {
   headerTintColor: "black",
@@ -28,12 +29,18 @@ const GoldNavigator = createStackNavigator({
   ItemDetail: {
     screen: ItemDetails,
   },
+  ShoppingCart: {
+    screen: ShoppingCartScreen,
+  },
 });
 
 const CategoriesNavigation = createStackNavigator({
   Categories: { screen: Categories },
   ItemDetail: {
     screen: ItemDetails,
+  },
+  ShoppingCart: {
+    screen: ShoppingCartScreen,
   },
 });
 

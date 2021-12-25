@@ -6,21 +6,50 @@ import GoldListItem from "../components/GoldListItem";
 import GoldPrice from "../components/GoldPrice";
 import HeadingTitle from "../components/HeadingTitle";
 import Colors from "../constants/Colors";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import HeaderButton from "../components/HeaderButton";
 
-export default function GoldShop() {
+const GoldShop = (props) => {
   return (
-    <View style={styles.screen}>
-      <GoldPrice />
-      <HeadingTitle>New Collection</HeadingTitle>
+    <ScrollView>
+      <View style={styles.screen}>
+        <GoldPrice />
+        <HeadingTitle>New Collection</HeadingTitle>
 
-      <GoldListItem />
-      <GoldListItem />
+        <GoldListItem navigation={props.navigation} />
 
-      <HeadingTitle>Wedding Collection</HeadingTitle>
-    </View>
+        {/* <GoldListItem />
+        <GoldListItem />
+        <GoldListItem />
+        <GoldListItem />
+        <GoldListItem />
+        <GoldListItem />
+        <GoldListItem />
+        <GoldListItem /> */}
+
+        <HeadingTitle>Wedding Collection</HeadingTitle>
+      </View>
+    </ScrollView>
   );
-}
+};
 
+GoldShop.navigationOptions = (navData) => {
+  return {
+    headerRight: () => (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Cart"
+          iconName="cart"
+          onPress={() => {
+            navData.navigation.navigate({ routeName: "ShoppingCart" });
+          }}
+        />
+      </HeaderButtons>
+    ),
+  };
+};
+
+export default GoldShop;
 const styles = StyleSheet.create({
   screen: {
     flex: 1,

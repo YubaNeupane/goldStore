@@ -1,13 +1,20 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function ShopingCart() {
+const ShoppingCartScreen = (props) => {
   return (
     <View style={styles.screen}>
-      <Text>Shoping Cart</Text>
+      <Text>Shopping Cart</Text>
     </View>
   );
-}
+};
+ShoppingCartScreen.navigationOptions = (navData) => {
+  return {
+    headerTitle: "Shopping Cart",
+  };
+};
+
+export default ShoppingCartScreen;
 
 const styles = StyleSheet.create({
   screen: {
