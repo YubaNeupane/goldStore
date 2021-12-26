@@ -10,7 +10,7 @@ export default function HoursContainer(props) {
           props.hours === "Closed"
             ? {
                 ...styles.hoursContainer,
-                ...{ backgroundColor: Colors.secondaryTextColor },
+                ...{ backgroundColor: "black", borderRadius: 8 },
               }
             : styles.hoursContainer
         }
@@ -34,14 +34,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 10,
 
-    flex: 1,
+    // flex: 1,
   },
 
   text: {
     fontFamily: "cinzel-regular",
     fontSize: 15,
+    color: Colors.secondaryTextColor,
   },
   element: {
     marginVertical: 3,
+    alignItems: "center",
   },
 });

@@ -51,7 +51,12 @@ const DetailsNavigation = createStackNavigator(
   {
     ItemDetail: {
       screen: StoreDetails,
-      navigationOptions: { headerTitle: "Details" },
+      navigationOptions: {
+        headerTitle: "Details",
+        headerStyle: {
+          backgroundColor: Colors.secondaryTextColor,
+        },
+      },
     },
   },
   defaultHeaderOptions

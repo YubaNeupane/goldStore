@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import Card from "../components/Card";
 import GoldListItem from "../components/GoldListItem";
 import GoldPrice from "../components/GoldPrice";
 import HeadingTitle from "../components/HeadingTitle";
@@ -11,15 +10,13 @@ import HeaderButton from "../components/HeaderButton";
 
 const GoldShop = (props) => {
   return (
-    <View style={styles.screen}>
-      <ScrollView>
-        <View style={styles.screen}>
-          <GoldPrice />
-          <HeadingTitle>New Collection</HeadingTitle>
+    <ScrollView contentContainerStyle={styles.screen}>
+      <GoldPrice />
+      <HeadingTitle>New Collection</HeadingTitle>
 
-          <GoldListItem navigation={props.navigation} />
+      <GoldListItem navigation={props.navigation} />
 
-          {/* <GoldListItem />
+      {/* <GoldListItem />
         <GoldListItem />
         <GoldListItem />
         <GoldListItem />
@@ -28,10 +25,8 @@ const GoldShop = (props) => {
         <GoldListItem />
         <GoldListItem /> */}
 
-          <HeadingTitle>Wedding Collection</HeadingTitle>
-        </View>
-      </ScrollView>
-    </View>
+      <HeadingTitle>Wedding Collection</HeadingTitle>
+    </ScrollView>
   );
 };
 
