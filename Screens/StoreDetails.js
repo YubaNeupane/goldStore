@@ -25,37 +25,33 @@ export default function StoreDetails() {
   };
   return (
     <ScrollView contentContainerStyle={styles.screen}>
-      <View>
-        <Card style={styles.card}>
-          <HeadingTitle>Address</HeadingTitle>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <View>
-              <Text style={styles.textColor}>45 Gateway Dr</Text>
-              <Text style={styles.textColor}>Mechaanicsburg, PA-17050</Text>
-            </View>
-
-            <TouchableOpacity
-              onPress={openDirection}
-              style={styles.customButton}
-            >
-              <View style={styles.mapDirection}>
-                <Text style={styles.textColor}>Get Direction</Text>
-                <MaterialCommunityIcons
-                  name="google-maps"
-                  size={32}
-                  color={"white"}
-                />
-              </View>
-            </TouchableOpacity>
+      <Card style={styles.card}>
+        <HeadingTitle>Address</HeadingTitle>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <View>
+            <Text style={styles.textColor}>45 Gateway Dr</Text>
+            <Text style={styles.textColor}>Mechaanicsburg, PA-17050</Text>
           </View>
-        </Card>
-      </View>
+
+          <TouchableOpacity onPress={openDirection} style={styles.customButton}>
+            <View style={styles.mapDirection}>
+              <Text style={styles.textColor}>Get Direction</Text>
+              <MaterialCommunityIcons
+                name="google-maps"
+                size={32}
+                color={"white"}
+              />
+            </View>
+          </TouchableOpacity>
+        </View>
+      </Card>
+
       <Card style={styles.card}>
         <HeadingTitle>Bussiness Hours</HeadingTitle>
         <HoursContainer name="Sunday" hours="10:00 AM - 7:00 PM" />
