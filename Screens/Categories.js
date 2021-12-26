@@ -1,13 +1,26 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import CaterogyGridItem from "../components/CaterogyGridItem";
 import HeaderButton from "../components/HeaderButton";
+import CategoriesName from "../data/CategoriesName";
+
 
 const Categories = (props) => {
+
+  const renderGridItem = (item) =>{
+
+    return <CaterogyGridItem item={item.item}/>
+  }
+
   return (
     <View style={styles.screen}>
-      <Text>Categories</Text>
+      <FlatList data={CategoriesName} renderItem={renderGridItem}/>
     </View>
+    
+     
+
+
   );
 };
 
@@ -31,8 +44,7 @@ export default Categories;
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    width:'100%',
+    marginLeft:10
   },
 });
