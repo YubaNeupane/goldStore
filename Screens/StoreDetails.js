@@ -24,8 +24,8 @@ export default function StoreDetails() {
     Linking.openURL(url);
   };
   return (
-    <ScrollView>
-      <View style={styles.screen}>
+    <ScrollView contentContainerStyle={styles.screen}>
+      <View>
         <Card style={styles.card}>
           <HeadingTitle>Address</HeadingTitle>
           <View
@@ -36,8 +36,8 @@ export default function StoreDetails() {
             }}
           >
             <View>
-              <Text>45 Gateway Dr</Text>
-              <Text>Mechaanicsburg, PA-17050</Text>
+              <Text style={styles.textColor}>45 Gateway Dr</Text>
+              <Text style={styles.textColor}>Mechaanicsburg, PA-17050</Text>
             </View>
 
             <TouchableOpacity
@@ -45,7 +45,7 @@ export default function StoreDetails() {
               style={styles.customButton}
             >
               <View style={styles.mapDirection}>
-                <Text>Get Direction</Text>
+                <Text style={styles.textColor}>Get Direction</Text>
                 <MaterialCommunityIcons
                   name="google-maps"
                   size={32}
@@ -55,19 +55,17 @@ export default function StoreDetails() {
             </TouchableOpacity>
           </View>
         </Card>
-        <Card style={styles.card}>
-          <HeadingTitle>Bussiness Hours</HeadingTitle>
-          <View>
-            <HoursContainer name="Sunday" hours="10:00 AM - 7:00 PM" />
-            <HoursContainer name="Monday" hours="10:00 AM - 7:00 PM" />
-            <HoursContainer name="Tuesday" hours="Closed" />
-            <HoursContainer name="Wednesday" hours="10:00 AM - 7:00 PM" />
-            <HoursContainer name="Thursday" hours="10:00 AM - 7:00 PM" />
-            <HoursContainer name="Friday" hours="10:00 AM - 7:00 PM" />
-            <HoursContainer name="Saturday" hours="10:00 AM - 7:00 PM" />
-          </View>
-        </Card>
       </View>
+      <Card style={styles.card}>
+        <HeadingTitle>Bussiness Hours</HeadingTitle>
+        <HoursContainer name="Sunday" hours="10:00 AM - 7:00 PM" />
+        <HoursContainer name="Monday" hours="10:00 AM - 7:00 PM" />
+        <HoursContainer name="Tuesday" hours="Closed" />
+        <HoursContainer name="Wednesday" hours="10:00 AM - 7:00 PM" />
+        <HoursContainer name="Thursday" hours="10:00 AM - 7:00 PM" />
+        <HoursContainer name="Friday" hours="10:00 AM - 7:00 PM" />
+        <HoursContainer name="Saturday" hours="10:00 AM - 7:00 PM" />
+      </Card>
     </ScrollView>
   );
 }
@@ -76,18 +74,29 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     alignItems: "center",
+    backgroundColor: Colors.backgroundViewColor,
   },
   card: {
+    marginTop: 10,
     width: "90%",
+    backgroundColor: Colors.primaryDarkColor,
   },
   customButton: {
     marginVertical: 10,
-    backgroundColor: Colors.secondaryLightColor,
+    backgroundColor: "#498ADF",
     width: "40 %",
+    borderRadius: 10,
+    elevation: 5,
+    shadowColor: "black",
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
   },
   mapDirection: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
+  },
+  textColor: {
+    color: Colors.secondaryTextColor,
   },
 });
