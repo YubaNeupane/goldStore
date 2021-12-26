@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../components/HeaderButton";
+import SearchBar from "../components/Searchbar";
 
 const ItemsInCatorgies = (props) => {
+  const [searchPhrase, setSearchPhrase] = useState("");
+  const [clicked, setClicked] = useState(false);
   return (
-    <View>
+    <View style={styles.screen}>
+      <SearchBar
+        searchPhrase={searchPhrase}
+        setSearchPhrase={setSearchPhrase}
+        clicked={clicked}
+        setClicked={setClicked}
+      />
       <Text>TEST</Text>
     </View>
   );
@@ -30,6 +39,11 @@ ItemsInCatorgies.navigationOptions = (navigationData) => {
   };
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  screen: {
+    width: "100%",
+    marginLeft: 10,
+  },
+});
 
 export default ItemsInCatorgies;

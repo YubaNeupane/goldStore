@@ -97,18 +97,18 @@ const GoldBottomNavigation = createBottomTabNavigator(
         },
       },
     },
-    Search: {
-      screen: SearchNavigation,
-      navigationOptions: {
-        tabBarIcon: (tabInfo) => {
-          return (
-            <View>
-              <Ionicons name="ios-search" size={25} color={tabInfo.tintColor} />
-            </View>
-          );
-        },
-      },
-    },
+    // Search: {
+    //   screen: SearchNavigation,
+    //   navigationOptions: {
+    //     tabBarIcon: (tabInfo) => {
+    //       return (
+    //         <View>
+    //           <Ionicons name="ios-search" size={25} color={tabInfo.tintColor} />
+    //         </View>
+    //       );
+    //     },
+    //   },
+    // },
     Sell: {
       screen: SellNavigation,
       navigationOptions: {
