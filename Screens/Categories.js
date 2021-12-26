@@ -5,22 +5,27 @@ import CaterogyGridItem from "../components/CaterogyGridItem";
 import HeaderButton from "../components/HeaderButton";
 import CategoriesName from "../data/CategoriesName";
 
-
 const Categories = (props) => {
-
-  const renderGridItem = (item) =>{
-
-    return <CaterogyGridItem item={item.item}/>
-  }
+  const renderGridItem = (item) => {
+    return (
+      <CaterogyGridItem
+        item={item.item}
+        onSelect={() => {
+          props.navigation.navigate({
+            routeName: "ItemInCategory",
+            params: {
+              categoryName: item.item.title,
+            },
+          });
+        }}
+      />
+    );
+  };
 
   return (
     <View style={styles.screen}>
-      <FlatList data={CategoriesName} renderItem={renderGridItem}/>
+      <FlatList data={CategoriesName} renderItem={renderGridItem} />
     </View>
-    
-     
-
-
   );
 };
 
@@ -44,7 +49,7 @@ export default Categories;
 
 const styles = StyleSheet.create({
   screen: {
-    width:'100%',
-    marginLeft:10
+    width: "100%",
+    marginLeft: 10,
   },
 });
