@@ -7,4 +7,5 @@ export default {
   secondaryDarkColor: "#5c007a",
   primaryTextColor: "#212121",
   secondaryTextColor: "#fff59d",
+  backgroundViewColor: "#3d403c",
 };

@@ -24,6 +24,9 @@ const GoldNavigator = createStackNavigator({
     screen: GoldShop,
     navigationOptions: {
       headerTitle: "Shop",
+      headerStyle: {
+        backgroundColor: Colors.secondaryTextColor,
+      },
     },
   },
   ItemDetail: {

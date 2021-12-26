@@ -11,14 +11,15 @@ import HeaderButton from "../components/HeaderButton";
 
 const GoldShop = (props) => {
   return (
-    <ScrollView>
-      <View style={styles.screen}>
-        <GoldPrice />
-        <HeadingTitle>New Collection</HeadingTitle>
+    <View style={styles.screen}>
+      <ScrollView>
+        <View style={styles.screen}>
+          <GoldPrice />
+          <HeadingTitle>New Collection</HeadingTitle>
 
-        <GoldListItem navigation={props.navigation} />
+          <GoldListItem navigation={props.navigation} />
 
-        {/* <GoldListItem />
+          {/* <GoldListItem />
         <GoldListItem />
         <GoldListItem />
         <GoldListItem />
@@ -27,9 +28,10 @@ const GoldShop = (props) => {
         <GoldListItem />
         <GoldListItem /> */}
 
-        <HeadingTitle>Wedding Collection</HeadingTitle>
-      </View>
-    </ScrollView>
+          <HeadingTitle>Wedding Collection</HeadingTitle>
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -54,5 +56,6 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     alignItems: "center",
+    backgroundColor: Colors.backgroundViewColor,
   },
 });

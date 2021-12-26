@@ -19,6 +19,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontFamily: "cinzel-semiBold",
-    color: Colors.primaryTextColor,
+    color: Colors.secondaryTextColor,
   },
 });
