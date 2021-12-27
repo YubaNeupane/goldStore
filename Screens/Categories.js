@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
   },
   screen: {
     backgroundColor: Colors.backgroundViewColor,
-    paddingTop: 10,
   },
   item: {
     alignItems: "center",
