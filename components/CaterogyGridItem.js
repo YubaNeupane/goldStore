@@ -7,19 +7,24 @@ import Colors from "../constants/Colors";
 export default function CaterogyGridItem(props) {
   return (
     <TouchableOpacity onPress={props.onSelect}>
-      <Card style={styles.itemContainer}>
-        <View style={styles.imageContainer}>
-          <Image source={{ uri: props.item.image }} style={styles.image} />
-        </View>
-        <Text numberOfLines={1} style={styles.title}>
-          {props.item.title}
-        </Text>
-      </Card>
+      <View style={styles.container}>
+        <Card style={styles.itemContainer}>
+          <View style={styles.imageContainer}>
+            <Image source={{ uri: props.item.image }} style={styles.image} />
+          </View>
+          <Text numberOfLines={1} style={styles.title}>
+            {props.item.title}
+          </Text>
+        </Card>
+      </View>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   image: {
     width: 140,
     height: "100%",
@@ -33,6 +38,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     overflow: "hidden",
     backgroundColor: Colors.primaryDarkColor,
+    alignSelf: "center",
   },
   title: {
     flex: 1,

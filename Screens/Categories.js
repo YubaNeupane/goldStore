@@ -9,24 +9,31 @@ import Colors from "../constants/Colors";
 const Categories = (props) => {
   const renderGridItem = (item) => {
     return (
-      <CaterogyGridItem
-        item={item.item}
-        onSelect={() => {
-          props.navigation.navigate({
-            routeName: "ItemInCategory",
-            params: {
-              categoryName: item.item.title,
-            },
-          });
-        }}
-      />
+      <View style={styles.itemContainer}>
+        <CaterogyGridItem
+          item={item.item}
+          onSelect={() => {
+            props.navigation.navigate({
+              routeName: "ItemInCategory",
+              params: {
+                categoryName: item.item.title,
+              },
+            });
+          }}
+        />
+      </View>
     );
   };
 
   return (
     <View style={styles.screen}>
-      <View style={styles.cata}>
-      <FlatList data={CategoriesName} renderItem={renderGridItem} />
+      <View>
+        <FlatList
+          style={styles.list}
+          data={CategoriesName}
+          renderItem={renderGridItem}
+          // contentContainerStyle={styles.itemContainer}
+        />
       </View>
     </View>
   );
@@ -51,12 +58,14 @@ Categories.navigationOptions = (navData) => {
 export default Categories;
 
 const styles = StyleSheet.create({
-  screen: {
-    backgroundColor: Colors.backgroundViewColor, 
+  itemContainer: {
+    justifyContent: "center",
   },
-  cata: {
-    margin:5,
+  screen: {
+    backgroundColor: Colors.backgroundViewColor,
+    paddingTop: 10,
+  },
+  item: {
     alignItems: "center",
-    backgroundColor:Colors.primaryLightColor,
-  }
+  },
 });
