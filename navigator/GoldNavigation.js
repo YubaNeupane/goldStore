@@ -14,6 +14,7 @@ import BlurView from "@react-native-community/blur";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 import ShoppingCartScreen from "../Screens/ShoppingCartScreen";
+import ItemsInCatorgies from "../Screens/ItemsInCatorgies";
 
 const defaultHeaderOptions = {
   headerTintColor: "black",
@@ -45,6 +46,7 @@ const CategoriesNavigation = createStackNavigator({
   ShoppingCart: {
     screen: ShoppingCartScreen,
   },
+  ItemInCategory: ItemsInCatorgies,
 });
 
 const DetailsNavigation = createStackNavigator(
@@ -95,18 +97,18 @@ const GoldBottomNavigation = createBottomTabNavigator(
         },
       },
     },
-    Search: {
-      screen: SearchNavigation,
-      navigationOptions: {
-        tabBarIcon: (tabInfo) => {
-          return (
-            <View>
-              <Ionicons name="ios-search" size={25} color={tabInfo.tintColor} />
-            </View>
-          );
-        },
-      },
-    },
+    // Search: {
+    //   screen: SearchNavigation,
+    //   navigationOptions: {
+    //     tabBarIcon: (tabInfo) => {
+    //       return (
+    //         <View>
+    //           <Ionicons name="ios-search" size={25} color={tabInfo.tintColor} />
+    //         </View>
+    //       );
+    //     },
+    //   },
+    // },
     Sell: {
       screen: SellNavigation,
       navigationOptions: {
