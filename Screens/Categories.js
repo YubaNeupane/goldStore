@@ -4,6 +4,7 @@ import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import CaterogyGridItem from "../components/CaterogyGridItem";
 import HeaderButton from "../components/HeaderButton";
 import CategoriesName from "../data/CategoriesName";
+import Colors from "../constants/Colors";
 
 const Categories = (props) => {
   const renderGridItem = (item) => {
@@ -24,7 +25,9 @@ const Categories = (props) => {
 
   return (
     <View style={styles.screen}>
+      <View style={styles.cata}>
       <FlatList data={CategoriesName} renderItem={renderGridItem} />
+      </View>
     </View>
   );
 };
@@ -49,7 +52,11 @@ export default Categories;
 
 const styles = StyleSheet.create({
   screen: {
-    width: "100%",
-    marginLeft: 10,
+    backgroundColor: Colors.backgroundViewColor, 
   },
+  cata: {
+    margin:5,
+    alignItems: "center",
+    backgroundColor:Colors.primaryLightColor,
+  }
 });
