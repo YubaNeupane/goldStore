@@ -1,12 +1,22 @@
 class GoldItem {
-  constructor(id, name, amountOfGold, price, category, thumbNail, images) {
+  constructor(
+    id,
+    name,
+    weight,
+    price,
+    category,
+    thumbNail,
+    images,
+    optionalText
+  ) {
     this.id = id;
     this.name = name;
     this.price = price;
     this.category = category;
     this.thumbNail = thumbNail;
     this.images = images;
-    this.amountOfGold = amountOfGold;
+    this.weight = weight;
+    this.optionalText = optionalText;
   }
 }
 

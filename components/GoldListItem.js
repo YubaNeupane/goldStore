@@ -3,23 +3,20 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { color } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 import Colors from "../constants/Colors";
 import Card from "./Card";
-
-export default function GoldListItem(props) {
+const GoldListItem = (props) => {
   //   console.log(props.navigation);
   return (
     <TouchableOpacity
       style={styles.goldItem}
       activeOpacity={0.8}
-      onPress={() => {
-        props.navigation.navigate({ routeName: "ItemDetail" });
-      }}
+      onPress={props.onSelect}
     >
       <Card style={styles.card}>
         <View style={styles.goldItemContainer}>
           <View style={styles.imageContainer}>
             <Image
               source={{
-                uri: "https://s.yimg.com/ny/api/res/1.2/UWnPDAWbQGGzwwgGTaXjCA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MA--/https://s.yimg.com/os/creatr-uploaded-images/2021-05/d857e3b0-be03-11eb-beff-748cecd7a86b",
+                uri: props.item.thumbNail,
               }}
               style={styles.image}
             />
@@ -28,14 +25,24 @@ export default function GoldListItem(props) {
           <View style={styles.infoContainer}>
             <View style={styles.row}>
               <Text
-                numberOfLines={2}
+                numberOfLines={1}
                 style={{
-                  fontFamily: "cinzel-bold",
+                  fontFamily: "cinzel-semiBold",
                   fontSize: 16,
                   color: Colors.secondaryTextColor,
                 }}
               >
-                addwad Naadwdwadwadwadwadadawdfadawdme
+                {props.item.name}
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={{
+                  fontFamily: "cinzel-regular",
+                  fontSize: 13,
+                  color: "black",
+                }}
+              >
+                Weight: {props.item.weight} Grams
               </Text>
             </View>
           </View>
@@ -43,7 +50,7 @@ export default function GoldListItem(props) {
       </Card>
     </TouchableOpacity>
   );
-}
+};
 
 const styles = StyleSheet.create({
   goldItem: {
@@ -65,7 +72,11 @@ const styles = StyleSheet.create({
   imageContainer: {},
   infoContainer: {
     flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     padding: 15,
     flex: 1,
   },
 });
+
+export default GoldListItem;

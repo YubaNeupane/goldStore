@@ -7,6 +7,7 @@ import SearchBar from "../components/Searchbar";
 const ItemsInCatorgies = (props) => {
   const [searchPhrase, setSearchPhrase] = useState("");
   const [clicked, setClicked] = useState(false);
+
   return (
     <View style={styles.screen}>
       <SearchBar

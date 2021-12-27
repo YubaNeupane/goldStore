@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View, FlatList } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import GoldListItem from "../components/GoldListItem";
 import GoldPrice from "../components/GoldPrice";
@@ -7,14 +7,33 @@ import HeadingTitle from "../components/HeadingTitle";
 import Colors from "../constants/Colors";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../components/HeaderButton";
+import DummyData from "../data/dummyData";
 
 const GoldShop = (props) => {
+  const GoldItem = (item) => {};
+
   return (
     <ScrollView contentContainerStyle={styles.screen}>
       <GoldPrice />
       <HeadingTitle>New Collection</HeadingTitle>
 
-      <GoldListItem navigation={props.navigation} />
+      {DummyData.map((item) => {
+        return (
+          <GoldListItem
+            navigation={props.navigation}
+            key={item.id + Math.random()}
+            item={item}
+            onSelect={() =>
+              props.navigation.navigate({
+                routeName: "ItemDetail",
+                params: {
+                  selectedItem: item,
+                },
+              })
+            }
+          />
+        );
+      })}
 
       {/* <GoldListItem />
         <GoldListItem />
@@ -49,7 +68,6 @@ GoldShop.navigationOptions = (navData) => {
 export default GoldShop;
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
     alignItems: "center",
     backgroundColor: Colors.backgroundViewColor,
   },
