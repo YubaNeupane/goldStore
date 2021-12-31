@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Button, StyleSheet, Text, View, FlatList } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import GoldListItem from "../components/GoldListItem";
@@ -9,27 +9,28 @@ import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../components/HeaderButton";
 import DummyData from "../data/dummyData";
 import { useDispatch, useSelector } from "react-redux";
-import {addProduct} from "../apiCall/actions/productAction";
+import { addProduct } from "../apiCall/actions/productAction";
 
 const GoldShop = (props) => {
   const GoldItem = (item) => {};
-  
-  const productDetails =  useSelector(state => {
-    return state.product});
-  const[products,setProducts] = useState([]);
+
+  const productDetails = useSelector((state) => {
+    return state.product;
+  });
+  const [products, setProducts] = useState([]);
   const callOnce = useRef(false);
   const dispatch = useDispatch();
   useEffect(() => {
-    setProducts(productDetails)
-    if(callOnce.current){
-      return
-    }else{
-      dispatch(addProduct())
-      callOnce.current=true
+    setProducts(productDetails);
+    if (callOnce.current) {
+      return;
+    } else {
+      dispatch(addProduct());
+      callOnce.current = true;
     }
-   }, [productDetails,callOnce])
+  }, [productDetails, callOnce]);
   return (
-    <ScrollView contentContainerStyle={styles.screen}>
+    <ScrollView contentContainerStyle={styles.screen} style={styles.container}>
       <GoldPrice />
       <HeadingTitle>New Collection</HeadingTitle>
 
@@ -37,7 +38,7 @@ const GoldShop = (props) => {
         return (
           <GoldListItem
             navigation={props.navigation}
-            key={item.id + Math.random()}
+            key={item._id}
             item={item}
             onSelect={() =>
               props.navigation.navigate({
@@ -51,7 +52,7 @@ const GoldShop = (props) => {
         );
       })}
 
-        {/* <GoldListItem />
+      {/* <GoldListItem />
         <GoldListItem />
         <GoldListItem />
         <GoldListItem />
@@ -84,6 +85,9 @@ export default GoldShop;
 const styles = StyleSheet.create({
   screen: {
     alignItems: "center",
+  },
+  container: {
+    flex: 1,
     backgroundColor: Colors.backgroundViewColor,
   },
 });
