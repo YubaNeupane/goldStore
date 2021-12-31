@@ -13,7 +13,6 @@ export default function GoldPrice(props) {
     dispatch(goldPrice());
   };
   useEffect(() => {
-    console.log(goldPriceT);
     setCurrentGoldPrice(goldPriceT.price);
   }, [goldPriceT]);
   useEffect(() => {
