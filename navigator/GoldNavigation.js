@@ -39,7 +39,14 @@ const GoldNavigator = createStackNavigator({
 });
 
 const CategoriesNavigation = createStackNavigator({
-  Categories: { screen: Categories },
+  Categories: {
+    screen: Categories,
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: Colors.secondaryTextColor,
+      },
+    },
+  },
   ItemDetail: {
     screen: ItemDetails,
   },
@@ -72,7 +79,15 @@ const SearchNavigation = createStackNavigator({
 });
 
 const SellNavigation = createStackNavigator({
-  Sell: { screen: Sell, navigationOptions: { headerTitle: "Sell" } },
+  Sell: {
+    screen: Sell,
+    navigationOptions: {
+      headerTitle: "Sell",
+      headerStyle: {
+        backgroundColor: Colors.secondaryTextColor,
+      },
+    },
+  },
 });
 
 const GoldBottomNavigation = createBottomTabNavigator(
