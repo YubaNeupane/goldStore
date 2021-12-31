@@ -2,8 +2,12 @@ import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import Colors from "../constants/Colors";
 import Card from "./Card";
+import { useSelector } from "react-redux";
+import { goldPrice } from "../apiCall/actions/goldPriceAction";
 const GoldListItem = (props) => {
   //   console.log(props.navigation);
+  const goldPriceT =  useSelector(state => state.goldPrice);
+  const getCurrentGoldPrice = goldPriceT.price;
   return (
     <TouchableOpacity
       style={styles.goldItem}
@@ -38,10 +42,20 @@ const GoldListItem = (props) => {
                 style={{
                   fontFamily: "cinzel-regular",
                   fontSize: 13,
-                  color: "black",
+                  color: Colors.secondaryTextColor,
                 }}
               >
                 Weight: {props.item.weight} Grams
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={{
+                  fontFamily: "cinzel-regular",
+                  fontSize: 13,
+                  color: Colors.secondaryTextColor,
+                }}
+              >
+                Price: ${parseInt(props.item.price) + (parseInt(props.item.weight) * getCurrentGoldPrice)} 
               </Text>
             </View>
           </View>
