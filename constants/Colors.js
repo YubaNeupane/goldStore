@@ -8,4 +8,5 @@ export default {
   primaryTextColor: "#212121",
   secondaryTextColor: "#fff59d",
   backgroundViewColor: "#075985",
+  cardViewColor : "#C0C0C0",
 };

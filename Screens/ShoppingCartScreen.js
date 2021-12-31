@@ -1,10 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-
+import Colors from "../constants/Colors";
+import Card from "../components/Card";
 const ShoppingCartScreen = (props) => {
   return (
     <View style={styles.screen}>
-      <Text>Shopping Cart</Text>
+        <Card style={styles.itemContainer}>
+        </Card>
     </View>
   );
 };
@@ -21,5 +23,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: Colors.backgroundViewColor,
+  },
+  itemContainer: {
+    width: "95%",
+    height: 150,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    overflow: "hidden",
+    backgroundColor: Colors.cardViewColor,
+    alignSelf: "center",
   },
 });

@@ -3,7 +3,6 @@ import { Button, StyleSheet, Text, View } from "react-native";
 import Colors from "../constants/Colors";
 import Card from "./Card";
 import { useDispatch, useSelector } from "react-redux";
-import { Item } from "react-navigation-header-buttons";
 import { goldPrice } from "../apiCall/actions/goldPriceAction";
 
 
@@ -43,7 +42,7 @@ export default function GoldPrice(props) {
               </View>
             </View>
             <View style={styles.row}>
-              <Text style={styles.priceLabel}>Price: </Text>
+              <Text style={styles.priceLabel}>Price Per Tola(11.6 g): </Text>
               <View>
                 <Text
                   style={{
@@ -54,7 +53,7 @@ export default function GoldPrice(props) {
                     },
                   }}
                 >
-                  {"$"}{currentGoldPrice * 11.6}
+                  {"$"}{(currentGoldPrice * 11.6).toFixed(2)}
                 </Text>
               </View>
             </View>

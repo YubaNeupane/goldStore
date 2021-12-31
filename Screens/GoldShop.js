@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState, useRef} from "react";
 import { Button, StyleSheet, Text, View, FlatList } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import GoldListItem from "../components/GoldListItem";
@@ -8,16 +8,32 @@ import Colors from "../constants/Colors";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../components/HeaderButton";
 import DummyData from "../data/dummyData";
+import { useDispatch, useSelector } from "react-redux";
+import {addProduct} from "../apiCall/actions/productAction";
 
 const GoldShop = (props) => {
   const GoldItem = (item) => {};
-
+  
+  const productDetails =  useSelector(state => {
+    return state.product});
+  const[products,setProducts] = useState([]);
+  const callOnce = useRef(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    setProducts(productDetails)
+    if(callOnce.current){
+      return
+    }else{
+      dispatch(addProduct())
+      callOnce.current=true
+    }
+   }, [productDetails,callOnce])
   return (
     <ScrollView contentContainerStyle={styles.screen}>
       <GoldPrice />
       <HeadingTitle>New Collection</HeadingTitle>
 
-      {DummyData.map((item) => {
+      {products.map((item) => {
         return (
           <GoldListItem
             navigation={props.navigation}
@@ -35,14 +51,13 @@ const GoldShop = (props) => {
         );
       })}
 
-      {/* <GoldListItem />
+        {/* <GoldListItem />
         <GoldListItem />
         <GoldListItem />
         <GoldListItem />
         <GoldListItem />
         <GoldListItem />
-        <GoldListItem />
-        <GoldListItem /> */}
+        <GoldListItem />  */}
 
       <HeadingTitle>Wedding Collection</HeadingTitle>
     </ScrollView>

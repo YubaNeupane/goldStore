@@ -8,12 +8,14 @@ import {createStore, combineReducers, applyMiddleware, compose} from "redux";
 import { Provider } from "react-redux";
 
 import goldPriceReducer from "./apiCall/reducers/goldPriceReducers";
+import productReducer from "./apiCall/reducers/productReducer";
 import thunk from "redux-thunk";
 
 
 enableScreens();
  const rootReducr = combineReducers({
-   goldPrice: goldPriceReducer
+   goldPrice: goldPriceReducer,
+   product: productReducer
  })
 
 const store = createStore(rootReducr,compose(applyMiddleware(thunk)));
