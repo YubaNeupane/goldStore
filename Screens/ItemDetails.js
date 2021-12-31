@@ -1,35 +1,41 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView,Image,Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Image,
+  Button,
+} from "react-native";
 import Colors from "../constants/Colors";
-import {useDispatch } from "react-redux";
-
+import { useDispatch } from "react-redux";
+import { addProduct } from "../apiCall/actions/ShoppingCartAction";
 
 const ItemDetails = (props) => {
- const selectedItem = props.navigation.getParam("selectedItem");
- const dispatch = useDispatch();
+  const selectedItem = props.navigation.getParam("selectedItem");
+  const dispatch = useDispatch();
   return (
     <ScrollView style={styles.imageContainer}>
       <View style={styles.itemContainer}>
-      <Image
-  source={{
-    uri: selectedItem.thumbNail,
-  }}
-  style={styles.image}
-/>
-      <View style={styles.actions}>
-        <Button
-          color={Colors.primary}
-          title="Add to Cart"
-          onPress={() =>{
-            dispatch(productAction.addProduct(selectedItem))
+        <Image
+          source={{
+            uri: selectedItem.thumbNail,
           }}
+          style={styles.image}
         />
-      </View>
-      <Text style={styles.price}>${selectedItem.price}</Text>
-      <Text style={styles.description}>{selectedItem.description}</Text>
+        <View style={styles.actions}>
+          <Button
+            color={Colors.primary}
+            title="Add to Cart"
+            onPress={() => {
+              dispatch(addProduct(selectedItem));
+            }}
+          />
+        </View>
+        <Text style={styles.price}>${selectedItem.price}</Text>
+        <Text style={styles.description}>{selectedItem.description}</Text>
       </View>
     </ScrollView>
-
   );
 };
 
@@ -85,7 +91,6 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 14,
     textAlign: "center",
-
   },
   itemContainer: {
     margin: 10,
@@ -97,7 +102,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 10,
     backgroundColor: Colors.primaryDarkColor,
-  }
+  },
 });
 
 export default ItemDetails;
