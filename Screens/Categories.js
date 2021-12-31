@@ -20,6 +20,7 @@ const Categories = (props) => {
               routeName: "ItemInCategory",
               params: {
                 categoryName: item.item.title,
+                catId: item.item._id,
               },
             });
           }}
