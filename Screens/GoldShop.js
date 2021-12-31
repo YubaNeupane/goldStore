@@ -10,6 +10,7 @@ import HeaderButton from "../components/HeaderButton";
 import DummyData from "../data/dummyData";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../apiCall/actions/productAction";
+import { goldPrice } from "../apiCall/actions/goldPriceAction";
 
 const GoldShop = (props) => {
   const GoldItem = (item) => {};
@@ -26,6 +27,7 @@ const GoldShop = (props) => {
       return;
     } else {
       dispatch(addProduct());
+      dispatch(goldPrice());
       callOnce.current = true;
     }
   }, [productDetails, callOnce]);

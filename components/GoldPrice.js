@@ -1,24 +1,24 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import Colors from "../constants/Colors";
 import Card from "./Card";
 import { useDispatch, useSelector } from "react-redux";
 import { goldPrice } from "../apiCall/actions/goldPriceAction";
 
-
 export default function GoldPrice(props) {
-  const goldPriceT =  useSelector(state => state.goldPrice);
-  const[currentGoldPrice,setCurrentGoldPrice] = useState(0.00);
+  const goldPriceT = useSelector((state) => state.goldPrice);
+  const [currentGoldPrice, setCurrentGoldPrice] = useState(0.0);
   const dispatch = useDispatch();
   const getPrice = () => {
     dispatch(goldPrice());
-  }
+  };
   useEffect(() => {
+    console.log(goldPriceT);
     setCurrentGoldPrice(goldPriceT.price);
-  }, [goldPriceT])
+  }, [goldPriceT]);
   useEffect(() => {
-   getPrice();
-  }, [])
+    getPrice();
+  }, []);
   return (
     <View>
       <Card style={styles.card}>
@@ -37,7 +37,8 @@ export default function GoldPrice(props) {
                     },
                   }}
                 >
-                  {"$"}{currentGoldPrice}
+                  {"$"}
+                  {currentGoldPrice}
                 </Text>
               </View>
             </View>
@@ -53,7 +54,8 @@ export default function GoldPrice(props) {
                     },
                   }}
                 >
-                  {"$"}{(currentGoldPrice * 11.6).toFixed(2)}
+                  {"$"}
+                  {(currentGoldPrice * 11.6).toFixed(2)}
                 </Text>
               </View>
             </View>
