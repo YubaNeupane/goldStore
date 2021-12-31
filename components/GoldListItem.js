@@ -6,8 +6,12 @@ import { useSelector } from "react-redux";
 import { goldPrice } from "../apiCall/actions/goldPriceAction";
 const GoldListItem = (props) => {
   //   console.log(props.navigation);
-  const goldPriceT =  useSelector(state => state.goldPrice);
+  const goldPriceT = useSelector((state) => state.goldPrice);
   const getCurrentGoldPrice = goldPriceT.price;
+
+  function currencyFormat(num) {
+    return "$" + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  }
   return (
     <TouchableOpacity
       style={styles.goldItem}
@@ -55,7 +59,11 @@ const GoldListItem = (props) => {
                   color: Colors.secondaryTextColor,
                 }}
               >
-                Price: ${parseInt(props.item.price) + (parseInt(props.item.weight) * getCurrentGoldPrice)} 
+                Price:{" "}
+                {currencyFormat(
+                  parseInt(props.item.price) +
+                    parseInt(props.item.weight) * getCurrentGoldPrice
+                )}
               </Text>
             </View>
           </View>

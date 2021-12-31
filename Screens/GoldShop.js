@@ -11,6 +11,7 @@ import DummyData from "../data/dummyData";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../apiCall/actions/productAction";
 import { goldPrice } from "../apiCall/actions/goldPriceAction";
+import HotItemCarousel from "../components/HotItemCarousel";
 
 const GoldShop = (props) => {
   const GoldItem = (item) => {};
@@ -34,6 +35,10 @@ const GoldShop = (props) => {
   return (
     <ScrollView contentContainerStyle={styles.screen} style={styles.container}>
       <GoldPrice />
+
+      <HeadingTitle>Hot Items</HeadingTitle>
+      <HotItemCarousel product={products.slice(0, 10)} nav={props.navigation} />
+
       <HeadingTitle>New Collection</HeadingTitle>
 
       {products.map((item) => {
@@ -62,7 +67,7 @@ const GoldShop = (props) => {
         <GoldListItem />
         <GoldListItem />  */}
 
-      <HeadingTitle>Wedding Collection</HeadingTitle>
+      {/* <HeadingTitle>Wedding Collection</HeadingTitle> */}
     </ScrollView>
   );
 };
