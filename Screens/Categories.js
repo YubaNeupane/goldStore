@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Categories = (props) => {
   const categories = useSelector((state) => state.categories);
-  console.log(categories);
 
   const renderGridItem = (item) => {
     return (
