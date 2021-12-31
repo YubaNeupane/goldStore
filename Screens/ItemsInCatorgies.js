@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Dimensions,
   FlatList,
@@ -28,10 +28,15 @@ const ItemsInCatorgies = (props) => {
   const goldPriceT = useSelector((state) => state.goldPrice);
   const getCurrentGoldPrice = goldPriceT.price;
 
+  const initalItems = useRef([]);
+
   const products = useSelector((state) => state.product);
 
   useEffect(() => {
-    setItemsToDisplay(products);
+    const filiteredItems = products.filter((item) => item.category === catId);
+    setItemsToDisplay(filiteredItems);
+
+    initalItems.current = filiteredItems;
   }, [catId]);
 
   const renderItem = ({ item }) => {
@@ -85,7 +90,7 @@ const ItemsInCatorgies = (props) => {
       />
 
       <FlatList
-        data={products}
+        data={itemsToDisplay}
         keyExtractor={(item, key) => item._id}
         numColumns={2}
         renderItem={renderItem}
