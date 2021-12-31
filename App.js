@@ -11,12 +11,14 @@ import goldPriceReducer from "./apiCall/reducers/goldPriceReducers";
 import productReducer from "./apiCall/reducers/productReducer";
 import thunk from "redux-thunk";
 import ShoppingCartReducer from "./apiCall/reducers/ShoppingCartReducer";
+import CategoriesReducer from "./apiCall/reducers/CategoriesReducer";
 
 enableScreens();
 const rootReducr = combineReducers({
   goldPrice: goldPriceReducer,
   product: productReducer,
   shoppingCart: ShoppingCartReducer,
+  categories: CategoriesReducer,
 });
 
 const store = createStore(rootReducr, compose(applyMiddleware(thunk)));

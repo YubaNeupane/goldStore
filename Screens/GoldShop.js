@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../apiCall/actions/productAction";
 import { goldPrice } from "../apiCall/actions/goldPriceAction";
 import HotItemCarousel from "../components/HotItemCarousel";
+import { getCategories } from "../apiCall/actions/CategoriesActions";
 
 const GoldShop = (props) => {
   const GoldItem = (item) => {};
@@ -29,6 +30,7 @@ const GoldShop = (props) => {
     } else {
       dispatch(addProduct());
       dispatch(goldPrice());
+      dispatch(getCategories());
       callOnce.current = true;
     }
   }, [productDetails, callOnce]);
