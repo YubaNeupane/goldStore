@@ -81,11 +81,13 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: "row",
-    width: "100%",
+    width: "90%",
     justifyContent: "space-evenly",
-    marginVertical: 2,
+    marginVertical: 3,
+    borderBottomWidth: 1,
   },
   priceLabel: {
+    flex: 1,
     fontFamily: "cinzel-regular",
     fontSize: 16,
     color: Colors.secondaryDarkColor,
