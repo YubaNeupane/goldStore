@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from "react-navigation-tabs";
 import Categories from "../Screens/Categories";
 import Search from "../Screens/Search";
 import Sell from "../Screens/Sell";
-import { View } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
 import StoreDetails from "../Screens/StoreDetails";
 import { BottomTabBar } from "react-navigation-tabs";
 import BlurView from "@react-native-community/blur";
@@ -20,23 +20,46 @@ const defaultHeaderOptions = {
   headerTintColor: "black",
 };
 
-const GoldNavigator = createStackNavigator({
-  Shop: {
-    screen: GoldShop,
-    navigationOptions: {
-      headerTitle: "Shop",
-      headerStyle: {
-        backgroundColor: Colors.secondaryTextColor,
+const GoldNavigator = createStackNavigator(
+  {
+    Shop: {
+      screen: GoldShop,
+      navigationOptions: {
+        headerTitle: "",
+        headerBackground: () => (
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+              height: "100%",
+              backgroundColor: Colors.secondaryTextColor,
+            }}
+          >
+            <Image
+              source={require("../assets/logo/logo.png")}
+              resizeMode="contain"
+              style={{ width: 80, top: 12 }}
+            />
+          </View>
+        ),
+        headerStyle: {
+          backgroundColor: Colors.secondaryTextColor,
+        },
       },
     },
+    ItemDetail: {
+      screen: ItemDetails,
+    },
+    ShoppingCart: {
+      screen: ShoppingCartScreen,
+    },
   },
-  ItemDetail: {
-    screen: ItemDetails,
-  },
-  ShoppingCart: {
-    screen: ShoppingCartScreen,
-  },
-});
+  {
+    headerLayoutPreset: "center",
+  }
+);
 
 const CategoriesNavigation = createStackNavigator({
   Categories: {

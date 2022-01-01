@@ -62,12 +62,12 @@ const GoldShop = (props) => {
       })}
 
       {/* <GoldListItem />
-        <GoldListItem />
-        <GoldListItem />
-        <GoldListItem />
-        <GoldListItem />
-        <GoldListItem />
-        <GoldListItem />  */}
+      <GoldListItem />
+      <GoldListItem />
+      <GoldListItem />
+      <GoldListItem />
+      <GoldListItem />
+      <GoldListItem /> */}
 
       {/* <HeadingTitle>Wedding Collection</HeadingTitle> */}
     </ScrollView>
