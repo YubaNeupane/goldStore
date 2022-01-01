@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import {
   Dimensions,
   FlatList,
-  ImageBackground,
+  Image,
   StyleSheet,
   Text,
   View,
@@ -53,27 +53,24 @@ const ItemsInCatorgies = (props) => {
       >
         <View style={styles.container}>
           <View style={styles.card}>
-            <ImageBackground
-              source={{ uri: item.thumbNail }}
-              style={styles.image}
-              fadeDuration={300}
-            >
-              <View style={styles.infoContainer}>
-                <View style={styles.textContainer}>
-                  <Text style={styles.title}>{item.name}</Text>
-                  <View style={styles.priceWeightContainer}>
-                    <Text style={styles.subTitle}>Weight: {item.weight}g</Text>
-                    <Text style={styles.subTitle}>
-                      Price:{" "}
-                      {currencyFormat(
-                        parseInt(item.price) +
-                          parseInt(item.weight) * getCurrentGoldPrice
-                      )}
-                    </Text>
-                  </View>
+            <View style={styles.imageContainer}>
+              <Image source={{ uri: item.thumbNail }} style={styles.image} />
+            </View>
+            <View style={styles.infoContainer}>
+              <View style={styles.textContainer}>
+                <Text style={styles.title}>{item.name}</Text>
+                <View style={styles.priceWeightContainer}>
+                  <Text style={styles.subTitle}>Weight: {item.weight}g</Text>
+                  <Text style={styles.subTitle}>
+                    Price:{" "}
+                    {currencyFormat(
+                      parseInt(item.price) +
+                        parseInt(item.weight) * getCurrentGoldPrice
+                    )}
+                  </Text>
                 </View>
               </View>
-            </ImageBackground>
+            </View>
           </View>
         </View>
       </TouchableOpacity>
@@ -92,7 +89,7 @@ const ItemsInCatorgies = (props) => {
         <FlatList
           data={itemsToDisplay}
           keyExtractor={(item, key) => item._id}
-          numColumns={2}
+          numColumns={1}
           renderItem={renderItem}
         />
       ) : (
@@ -128,51 +125,55 @@ const styles = StyleSheet.create({
     width: "100%",
     flex: 1,
     backgroundColor: Colors.backgroundViewColor,
+    alignItems: "center",
   },
   card: {
-    width: width / 2 - 10,
-    height: height / 3,
+    width: width - 10,
+    height: height / 5 - 30,
     backgroundColor: "aqua",
     elevation: 5,
     shadowColor: "black",
-    shadowOpacity: 0.5,
-    shadowRadius: 5,
+    shadowOpacity: 0.8,
+    shadowRadius: 10,
+    flexDirection: "row",
+    marginVertical: 10,
+    backgroundColor: Colors.primaryDarkColor,
+    borderRadius: 10,
+
+    overflow: "hidden",
   },
-  container: {
-    marginLeft: 5,
-    marginRight: 5,
-    marginTop: 10,
+  container: {},
+  imageContainer: {
+    width: "60%",
+    height: "100%",
+    padding: 5,
   },
   image: {
     width: "100%",
     height: "100%",
-
-    resizeMode: "cover",
+    borderRadius: 10,
   },
   infoContainer: {
-    flexDirection: "column-reverse",
-    height: "100%",
+    flex: 1,
+    justifyContent: "flex-start",
   },
   textContainer: {
-    flex: 0.12,
-    backgroundColor: "rgba(255,255,255,0.75)",
-    padding: 5,
+    marginVertical: 50,
+    justifyContent: "space-around",
   },
   title: {
-    fontFamily: "cinzel-bold",
     fontSize: 20,
-    color: Colors.primaryTextColor,
+    fontFamily: "cinzel-bold",
+    color: Colors.secondaryTextColor,
   },
   subTitle: {
-    fontFamily: "cinzel-regular",
     fontSize: 15,
-    color: "white",
+    fontFamily: "cinzel-medium",
+    color: Colors.secondaryTextColor,
   },
   priceWeightContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    backgroundColor: Colors.primaryDarkColor,
+    paddingTop: 15,
+    marginTop: 10,
   },
   noItemsContainer: {
     justifyContent: "center",
@@ -180,9 +181,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   noItemsText: {
+    fontFamily: "cinzel-semiBold",
     fontSize: 50,
-    fontFamily: "cinzel-medium",
     color: "white",
+    elevation: 2,
+    shadowColor: "black",
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
   },
 });
 
