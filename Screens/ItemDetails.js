@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -10,20 +10,25 @@ import {
 import Colors from "../constants/Colors";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../apiCall/actions/ShoppingCartAction";
+import ItemDetailsCarousel from "../components/ItemDetailsCarousel";
 
 const ItemDetails = (props) => {
   const selectedItem = props.navigation.getParam("selectedItem");
+  const scrollRef = useRef();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({
+      y: 0,
+      animated: true,
+    });
+  }, [scrollRef]);
+
   return (
-    <ScrollView style={styles.imageContainer}>
+    <ScrollView style={styles.imageContainer} ref={scrollRef}>
       <View style={styles.itemContainer}>
-        <Image
-          source={{
-            uri: selectedItem.thumbNail,
-          }}
-          style={styles.image}
-        />
-        <View style={styles.actions}>
+        <ItemDetailsCarousel item={selectedItem} />
+        {/* <View style={styles.actions}>
           <Button
             color={Colors.primary}
             title="Add to Cart"
@@ -31,7 +36,7 @@ const ItemDetails = (props) => {
               dispatch(addProduct(selectedItem));
             }}
           />
-        </View>
+        </View> */}
         <Text style={styles.price}>${selectedItem.price}</Text>
         <Text style={styles.description}>{selectedItem.description}</Text>
       </View>
@@ -101,7 +106,7 @@ const styles = StyleSheet.create({
     shadowColor: "black",
     shadowOpacity: 0.5,
     shadowRadius: 10,
-    backgroundColor: Colors.primaryDarkColor,
+    // backgroundColor: Colors.primaryDarkColor,
   },
 });
 

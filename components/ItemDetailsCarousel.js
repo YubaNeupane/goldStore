@@ -1,0 +1,113 @@
+import React, { useRef, useState, useEffect } from "react";
+import Carousel, {
+  ParallaxImage,
+  Pagination,
+} from "react-native-snap-carousel";
+import {
+  View,
+  Text,
+  Dimensions,
+  StyleSheet,
+  TouchableOpacity,
+  Platform,
+} from "react-native";
+
+const { width: screenWidth } = Dimensions.get("window");
+
+const ItemDetailsCarousel = (props) => {
+  const [entries, setEntries] = useState([{ image: props.item.thumbNail }]);
+  const [activeSlide, setActiveslide] = useState(0);
+
+  useEffect(() => {
+    const data = [
+      {
+        image: props.item.thumbNail,
+      },
+    ];
+    for (let i = 0; i < props.item.images.length; i++) {
+      if (props.item.images[i] === "") continue;
+
+      data.push({ image: props.item.images[i] });
+    }
+    setEntries(data);
+  }, []);
+
+  const renderItem = ({ item, index }, parallaxProps) => {
+    return (
+      <View style={styles.item}>
+        <ParallaxImage
+          source={{ uri: item.image }}
+          containerStyle={styles.imageContainer}
+          style={styles.image}
+          parallaxFactor={0.3}
+          showSpinner
+          fadeDuration={1}
+          {...parallaxProps}
+          lazyLoad
+        />
+      </View>
+    );
+  };
+
+  return (
+    <View>
+      <Carousel
+        sliderWidth={screenWidth}
+        sliderHeight={screenWidth}
+        itemWidth={screenWidth - 60}
+        data={entries}
+        fadeDuration={1000}
+        onSnapToItem={(index) => setActiveslide(index)}
+        renderItem={renderItem}
+        hasParallaxImages={true}
+        enableMomentum
+        removeClippedSubviews={false}
+        loop
+      />
+      <Pagination
+        dotsLength={entries.length}
+        activeDotIndex={activeSlide}
+        containerStyle={{
+          backgroundColor: "rgba(0, 0, 0, 0)",
+          bottom: 80,
+        }}
+        dotStyle={{
+          width: 10,
+          height: 10,
+          borderRadius: 5,
+          marginHorizontal: 8,
+          backgroundColor: "rgba(255, 255, 255, 0.92)",
+        }}
+        inactiveDotStyle={
+          {
+            // Define styles for inactive dots here
+          }
+        }
+        inactiveDotOpacity={0.4}
+        inactiveDotScale={0.6}
+      />
+    </View>
+  );
+};
+
+export default ItemDetailsCarousel;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  item: {
+    width: screenWidth - 60,
+    height: screenWidth - 60,
+  },
+  imageContainer: {
+    flex: 1,
+    marginBottom: Platform.select({ ios: 0, android: 1 }), // Prevent a random Android rendering issue
+    backgroundColor: "white",
+    borderRadius: 8,
+  },
+  image: {
+    ...StyleSheet.absoluteFillObject,
+    resizeMode: "cover",
+  },
+});

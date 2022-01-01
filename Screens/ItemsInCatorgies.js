@@ -51,7 +51,7 @@ const ItemsInCatorgies = (props) => {
           });
         }}
       >
-        <View style={styles.container}>
+        <View>
           <View style={styles.card}>
             <View style={styles.imageContainer}>
               <Image source={{ uri: item.thumbNail }} style={styles.image} />
@@ -142,7 +142,6 @@ const styles = StyleSheet.create({
 
     overflow: "hidden",
   },
-  container: {},
   imageContainer: {
     width: "60%",
     height: "100%",
