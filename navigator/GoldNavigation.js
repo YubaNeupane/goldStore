@@ -57,7 +57,7 @@ const GoldNavigator = createStackNavigator(
     },
   },
   {
-    headerLayoutPreset: "center",
+    // headerLayoutPreset: "center",
   }
 );
 
