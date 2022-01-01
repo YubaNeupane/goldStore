@@ -17,7 +17,6 @@ export default (state = initialState, action) => {
         [addedProduct]: addedProduct,
       };
 
-      console.log(state);
       return {
         ...state,
         items: { ...state.items, addedProduct },

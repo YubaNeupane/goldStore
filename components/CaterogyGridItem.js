@@ -10,7 +10,10 @@ export default function CaterogyGridItem(props) {
       <View style={styles.container}>
         <Card style={styles.itemContainer}>
           <View style={styles.imageContainer}>
-            <Image source={{ uri: props.item.image }} style={styles.image} />
+            <Image
+              source={{ uri: props.item.thumbNail }}
+              style={styles.image}
+            />
           </View>
           <Text numberOfLines={1} style={styles.title}>
             {props.item.title}
@@ -28,7 +31,7 @@ const styles = StyleSheet.create({
   image: {
     width: 140,
     height: "100%",
-    resizeMode: "contain",
+    resizeMode: "cover",
   },
   itemContainer: {
     width: "95%",

@@ -6,3 +6,6 @@ export const getGoldPrice = () =>
   );
 export const getProductDetails = () =>
   api.get("https://limitless-crag-92839.herokuapp.com/product");
+
+export const getCategories = () =>
+  api.get("https://limitless-crag-92839.herokuapp.com/category");

@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, Platform, View, Text } from "react-native";
 import { HeaderButton } from "react-navigation-header-buttons";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function CustomHeaderButton(props) {
   const color = Platform.OS == "android" ? "blue" : "red";
+
+  const cart = useSelector((state) => state.shoppingCart);
+
   return (
     <View>
       <HeaderButton
@@ -37,7 +41,7 @@ export default function CustomHeaderButton(props) {
             fontWeight: "bold",
           }}
         >
-          {6}
+          {cart.count}
         </Text>
       </View>
     </View>

@@ -5,8 +5,12 @@ import CaterogyGridItem from "../components/CaterogyGridItem";
 import HeaderButton from "../components/HeaderButton";
 import CategoriesName from "../data/CategoriesName";
 import Colors from "../constants/Colors";
+import { useDispatch, useSelector } from "react-redux";
 
 const Categories = (props) => {
+  const categories = useSelector((state) => state.categories);
+  console.log(categories);
+
   const renderGridItem = (item) => {
     return (
       <View style={styles.itemContainer}>
@@ -30,8 +34,9 @@ const Categories = (props) => {
       <View>
         <FlatList
           style={styles.list}
-          data={CategoriesName}
+          data={categories}
           renderItem={renderGridItem}
+          keyExtractor={(item, index) => item._id}
           // contentContainerStyle={styles.itemContainer}
         />
       </View>
