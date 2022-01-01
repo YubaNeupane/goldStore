@@ -88,13 +88,18 @@ const ItemsInCatorgies = (props) => {
         clicked={clicked}
         setClicked={setClicked}
       />
-
-      <FlatList
-        data={itemsToDisplay}
-        keyExtractor={(item, key) => item._id}
-        numColumns={2}
-        renderItem={renderItem}
-      />
+      {itemsToDisplay.length > 0 ? (
+        <FlatList
+          data={itemsToDisplay}
+          keyExtractor={(item, key) => item._id}
+          numColumns={2}
+          renderItem={renderItem}
+        />
+      ) : (
+        <View style={styles.noItemsContainer}>
+          <Text style={styles.noItemsText}>No Items</Text>
+        </View>
+      )}
     </View>
   );
 };
@@ -141,6 +146,7 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: "100%",
+
     resizeMode: "cover",
   },
   infoContainer: {
@@ -167,6 +173,16 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     backgroundColor: Colors.primaryDarkColor,
+  },
+  noItemsContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 1,
+  },
+  noItemsText: {
+    fontSize: 50,
+    fontFamily: "cinzel-medium",
+    color: "white",
   },
 });
 
