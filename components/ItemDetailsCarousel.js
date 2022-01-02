@@ -17,6 +17,7 @@ const { width: screenWidth } = Dimensions.get("window");
 const ItemDetailsCarousel = (props) => {
   const [entries, setEntries] = useState([{ image: props.item.thumbNail }]);
   const [activeSlide, setActiveslide] = useState(0);
+  const carouselRef = useRef(null);
 
   useEffect(() => {
     const data = [
@@ -54,27 +55,28 @@ const ItemDetailsCarousel = (props) => {
       <Carousel
         sliderWidth={screenWidth}
         sliderHeight={screenWidth}
+        ref={carouselRef}
         itemWidth={screenWidth - 60}
         data={entries}
         fadeDuration={1000}
         onSnapToItem={(index) => setActiveslide(index)}
         renderItem={renderItem}
         hasParallaxImages={true}
-        enableMomentum
         removeClippedSubviews={false}
-        loop
       />
       <Pagination
         dotsLength={entries.length}
         activeDotIndex={activeSlide}
+        tappableDots
+        carouselRef={carouselRef}
         containerStyle={{
           backgroundColor: "rgba(0, 0, 0, 0)",
-          bottom: 80,
+          top: -120,
         }}
         dotStyle={{
-          width: 10,
-          height: 10,
-          borderRadius: 5,
+          width: 20,
+          height: 20,
+          borderRadius: 10,
           marginHorizontal: 8,
           backgroundColor: "rgba(255, 255, 255, 0.92)",
         }}

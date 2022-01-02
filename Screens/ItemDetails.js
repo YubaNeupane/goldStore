@@ -11,6 +11,7 @@ import Colors from "../constants/Colors";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../apiCall/actions/ShoppingCartAction";
 import ItemDetailsCarousel from "../components/ItemDetailsCarousel";
+import ItemDetailsView from "../components/ItemDetailsView";
 
 const ItemDetails = (props) => {
   const selectedItem = props.navigation.getParam("selectedItem");
@@ -28,17 +29,9 @@ const ItemDetails = (props) => {
     <ScrollView style={styles.imageContainer} ref={scrollRef}>
       <View style={styles.itemContainer}>
         <ItemDetailsCarousel item={selectedItem} />
-        {/* <View style={styles.actions}>
-          <Button
-            color={Colors.primary}
-            title="Add to Cart"
-            onPress={() => {
-              dispatch(addProduct(selectedItem));
-            }}
-          />
-        </View> */}
-        <Text style={styles.price}>${selectedItem.price}</Text>
-        <Text style={styles.description}>{selectedItem.description}</Text>
+        <View>
+          <ItemDetailsView item={selectedItem} />
+        </View>
       </View>
     </ScrollView>
   );
