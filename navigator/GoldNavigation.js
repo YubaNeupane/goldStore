@@ -230,7 +230,7 @@ const GoldBottomNavigation = createBottomTabNavigator(
   },
   {
     tabBarOptions: {
-      activeTintColor: Colors.primaryDarkColor,
+      activeTintColor: Colors.secondaryTextColor,
       labelStyle: {
         fontSize: 12,
         fontFamily: "cinzel-black",
@@ -238,7 +238,8 @@ const GoldBottomNavigation = createBottomTabNavigator(
       showIcon: true,
       showLabel: true,
       style: {
-        // backgroundColor: "rgba(255,255,255,0.8)",
+        backgroundColor: Colors.primaryDarkColor,
+        borderWidth: 0,
         // position: "absolute",
         // borderTopWidth: 0,
         // shadowColor: "black",
