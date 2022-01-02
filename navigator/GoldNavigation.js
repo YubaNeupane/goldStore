@@ -34,7 +34,7 @@ const GoldNavigator = createStackNavigator(
               justifyContent: "center",
               width: "100%",
               height: "100%",
-              backgroundColor: Colors.secondaryTextColor,
+              backgroundColor: Colors.primaryDarkColor,
             }}
           >
             <Image
@@ -45,7 +45,7 @@ const GoldNavigator = createStackNavigator(
           </View>
         ),
         headerStyle: {
-          backgroundColor: Colors.secondaryTextColor,
+          backgroundColor: Colors.primaryDarkColor,
         },
       },
     },
@@ -65,8 +65,27 @@ const CategoriesNavigation = createStackNavigator({
   Categories: {
     screen: Categories,
     navigationOptions: {
+      headerTitle: "",
+        headerBackground: () => (
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+              height: "100%",
+              backgroundColor: Colors.primaryDarkColor,
+            }}
+          >
+            <Image
+              source={require("../assets/logo/logo.png")}
+              resizeMode="contain"
+              style={{ width: 80, top: 12 }}
+            />
+          </View>
+        ),
       headerStyle: {
-        backgroundColor: Colors.secondaryTextColor,
+        backgroundColor: Colors.primaryDarkColor,
       },
     },
   },
@@ -84,7 +103,25 @@ const DetailsNavigation = createStackNavigator(
     ItemDetail: {
       screen: StoreDetails,
       navigationOptions: {
-        headerTitle: "Details",
+        headerTitle: "",
+        headerBackground: () => (
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+              height: "100%",
+              backgroundColor: Colors.primaryDarkColor,
+            }}
+          >
+            <Image
+              source={require("../assets/logo/logo.png")}
+              resizeMode="contain"
+              style={{ width: 80, top: 12 }}
+            />
+          </View>
+        ),
         headerStyle: {
           backgroundColor: Colors.secondaryTextColor,
         },
@@ -105,7 +142,25 @@ const SellNavigation = createStackNavigator({
   Sell: {
     screen: Sell,
     navigationOptions: {
-      headerTitle: "Sell",
+      headerTitle: "",
+      headerBackground: () => (
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+            height: "100%",
+            backgroundColor: Colors.primaryDarkColor,
+          }}
+        >
+          <Image
+            source={require("../assets/logo/logo.png")}
+            resizeMode="contain"
+            style={{ width: 80, top: 12 }}
+          />
+        </View>
+      ),
       headerStyle: {
         backgroundColor: Colors.secondaryTextColor,
       },

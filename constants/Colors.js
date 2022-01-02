@@ -1,8 +1,8 @@
 export default {
-  primaryColor: "#e53935",
+  primaryColor: "#450610",
   primaryLightColor: "#ff6f60",
-  primaryDarkColor: "#ab000d",
-  secondaryColor: "#8e24aa",
+  primaryDarkColor: "#450610",
+  secondaryColor: "#8e24aa",                     
   secondaryLightColor: "#c158dc",
   secondaryDarkColor: "#5c007a",
   primaryTextColor: "#212121",
