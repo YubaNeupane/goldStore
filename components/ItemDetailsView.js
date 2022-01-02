@@ -17,7 +17,7 @@ export default function ItemDetailsView({ item }) {
         <Text style={styles.title}>{item.name.toUpperCase()}</Text>
       </View>
       <View style={styles.infoContainer}>
-        <Text style={styles.infoTitle}>WEIGHT: {item.weight}</Text>
+        <Text style={styles.infoTitle}>WEIGHT: {item.weight} Grams</Text>
         <Text style={styles.infoTitle}>
           PRICE:{" "}
           {currencyFormat(
