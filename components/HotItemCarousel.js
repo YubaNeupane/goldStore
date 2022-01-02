@@ -7,14 +7,23 @@ import {
   ImageBackground,
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { useSelector } from "react-redux";
+import Colors from "../constants/Colors";
 
 import Carousel from "react-native-snap-carousel";
 const { width, height } = Dimensions.get("window");
+
+function currencyFormat(num) {
+  return "$" + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+}
 
 const CustomCarousel = ({ product, nav }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [carouselItems, setCarouselItems] = useState(product);
   const ref = useRef(null);
+
+  const goldPriceT = useSelector((state) => state.goldPrice);
+  const getCurrentGoldPrice = goldPriceT.price;
 
   const renderItem = useCallback(
     ({ item, index }) => (
@@ -56,9 +65,47 @@ const CustomCarousel = ({ product, nav }) => {
                 height: 250,
               }}
             >
-              <View style={{ padding: 10 }}>
-                <Text style={{ fontSize: 30 }}>{item.name}</Text>
-                <Text>{item.weight} grams</Text>
+              <View
+                style={{
+                  backgroundColor: Colors.primaryDarkColor,
+                  width: "35%",
+                  borderBottomRightRadius: 50,
+                  overflow: "hidden",
+                }}
+              >
+                <View style={{ padding: 10 }}>
+                  <Text
+                    style={{
+                      fontSize: 30,
+                      color: Colors.primaryLightColor,
+                      fontFamily: "cinzel-bold",
+                    }}
+                    numberOfLines={1}
+                  >
+                    {item.name}
+                  </Text>
+                  <Text
+                    style={{
+                      fontSize: 15,
+                      color: Colors.secondaryTextColor,
+                      fontFamily: "cinzel-semiBold",
+                    }}
+                  >
+                    {item.weight} grams
+                  </Text>
+                  <Text
+                    style={{
+                      fontSize: 15,
+                      color: Colors.secondaryTextColor,
+                      fontFamily: "cinzel-semiBold",
+                    }}
+                  >
+                    {currencyFormat(
+                      parseInt(item.price) +
+                        parseInt(item.weight) * getCurrentGoldPrice
+                    )}
+                  </Text>
+                </View>
               </View>
             </ImageBackground>
           </View>
