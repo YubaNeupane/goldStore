@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,7 +8,7 @@ import {
   Button,
 } from "react-native";
 import Colors from "../constants/Colors";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../apiCall/actions/ShoppingCartAction";
 import ItemDetailsCarousel from "../components/ItemDetailsCarousel";
 import ItemDetailsView from "../components/ItemDetailsView";
@@ -19,11 +19,35 @@ import { addToCart } from "../apiCall/actions/ShoppingCartAction";
 
 const ItemDetails = (props) => {
   const selectedItem = props.navigation.getParam("selectedItem");
+  const shoppingCart = useSelector((state) => state.shoppingCart);
   const dispatch = useDispatch();
+
+  const [isAlreadyInCart, setIsAlreadyInCart] = useState(false);
 
   const handleOnAddToCart = () => {
     dispatch(addToCart(selectedItem));
 
+    props.navigation.navigate({ routeName: "ShoppingCart" });
+  };
+
+  useEffect(() => {
+    for (let i = 0; i < shoppingCart.count; i++) {
+      if (shoppingCart.items[i]._id == selectedItem._id) {
+        setIsAlreadyInCart(true);
+        return;
+      }
+    }
+  }, []);
+  useEffect(() => {
+    for (let i = 0; i < shoppingCart.count; i++) {
+      if (shoppingCart.items[i]._id == selectedItem._id) {
+        setIsAlreadyInCart(true);
+        return;
+      }
+    }
+  }, [shoppingCart]);
+
+  const handleIsAlreadyInCart = () => {
     props.navigation.navigate({ routeName: "ShoppingCart" });
   };
 
@@ -34,7 +58,11 @@ const ItemDetails = (props) => {
         <View>
           <ItemDetailsView item={selectedItem} />
         </View>
-        <CustomAddToCartButton handleClick={handleOnAddToCart} />
+        <CustomAddToCartButton
+          handleClick={handleOnAddToCart}
+          handleIsAlreadyInCart={handleIsAlreadyInCart}
+          isAlreadyInCart={isAlreadyInCart}
+        />
       </View>
     </ScrollView>
   );

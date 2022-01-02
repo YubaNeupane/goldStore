@@ -2,11 +2,17 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Colors from "../constants/Colors";
 import Card from "../components/Card";
+
+import { useSelector, useDispatch } from "react-redux";
+
 const ShoppingCartScreen = (props) => {
+  const dispatch = useDispatch();
+
+  const shoppingCart = useSelector((state) => state.shoppingCart);
+
   return (
     <View style={styles.screen}>
-        <Card style={styles.itemContainer}>
-        </Card>
+      <Card style={styles.itemContainer}></Card>
     </View>
   );
 };

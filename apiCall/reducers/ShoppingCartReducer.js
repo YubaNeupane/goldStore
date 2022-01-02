@@ -1,6 +1,6 @@
 const initialState = {
   count: 0,
-  items: {},
+  items: [],
 };
 
 export default (state = initialState, action) => {
@@ -12,13 +12,15 @@ export default (state = initialState, action) => {
         return { ...state };
       }
 
-      const newItem = {
-        [addedProduct]: addedProduct,
-      };
+      for (let i = 0; i < state.count; i++) {
+        if (state.items[i]._id == addedProduct) {
+          return { ...state };
+        }
+      }
 
       return {
         ...state,
-        items: { ...state.items, addedProduct },
+        items: [...state.items, action.product],
         count: state.count + 1,
       };
 
