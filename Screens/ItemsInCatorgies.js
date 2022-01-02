@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   imageContainer: {
-    width: "60%",
+    width: "50%",
     height: "100%",
     padding: 5,
   },
@@ -163,6 +163,7 @@ const styles = StyleSheet.create({
   infoContainer: {
     flex: 1,
     justifyContent: "flex-start",
+    marginLeft: 5,
   },
   textContainer: {
     marginVertical: 50,
