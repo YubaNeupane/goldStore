@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primaryDarkColor,
     width: width - 90,
     borderRadius: 25,
-    bottom: 120,
+    bottom: 110,
   },
   titleContainer: {
     alignItems: "center",

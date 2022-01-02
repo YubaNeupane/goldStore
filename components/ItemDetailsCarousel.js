@@ -71,7 +71,8 @@ const ItemDetailsCarousel = (props) => {
         carouselRef={carouselRef}
         containerStyle={{
           backgroundColor: "rgba(0, 0, 0, 0)",
-          top: -150,
+          marginVertical: 0,
+          top: -140,
         }}
         dotStyle={{
           width: 20,
@@ -96,7 +97,7 @@ export default ItemDetailsCarousel;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    marginVertical: 5,
   },
   item: {
     width: screenWidth - 60,
