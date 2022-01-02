@@ -18,9 +18,14 @@ export default (state = initialState, action) => {
         }
       }
 
+      const data = {
+        ...action.product,
+        quantity: 1,
+      };
+
       return {
         ...state,
-        items: [...state.items, action.product],
+        items: [...state.items, { ...data }],
         count: state.count + 1,
       };
 
