@@ -14,6 +14,7 @@ import ItemDetailsCarousel from "../components/ItemDetailsCarousel";
 import ItemDetailsView from "../components/ItemDetailsView";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../components/HeaderButton";
+import CustomAddToCartButton from "../components/CustomAddToCartButton";
 
 const ItemDetails = (props) => {
   const selectedItem = props.navigation.getParam("selectedItem");
@@ -34,6 +35,7 @@ const ItemDetails = (props) => {
         <View>
           <ItemDetailsView item={selectedItem} />
         </View>
+        <CustomAddToCartButton />
       </View>
     </ScrollView>
   );
@@ -102,15 +104,15 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   itemContainer: {
-    margin: 10,
+    margin: 100,
     flex: 1,
     alignItems: "center",
+    justifyContent: "center",
     borderRadius: 10,
     elevation: 5,
     shadowColor: "black",
     shadowOpacity: 0.5,
     shadowRadius: 10,
-    // backgroundColor: Colors.primaryDarkColor,
   },
 });
 

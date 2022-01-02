@@ -71,7 +71,7 @@ const ItemDetailsCarousel = (props) => {
         carouselRef={carouselRef}
         containerStyle={{
           backgroundColor: "rgba(0, 0, 0, 0)",
-          top: -120,
+          top: -150,
         }}
         dotStyle={{
           width: 20,
