@@ -7,8 +7,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case "ADD_PRODUCT_SHOPPING_CART":
       const addedProduct = action.product._id;
-      //   const prodPrice = addedProduct.price;
-      //   const productWeight = addedProduct.weight;
+
       if (state.items[addedProduct]) {
         return { ...state };
       }
@@ -22,6 +21,9 @@ export default (state = initialState, action) => {
         items: { ...state.items, addedProduct },
         count: state.count + 1,
       };
+
+    case "CLEAR_PRODUCT_SHOPPING_CART":
+      return initialState;
   }
   return state;
 };

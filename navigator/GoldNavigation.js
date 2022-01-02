@@ -1,5 +1,8 @@
 import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "react-navigation-stack";
 import GoldShop from "../Screens/GoldShop";
 import ItemDetails from "../Screens/ItemDetails";
 import { createBottomTabNavigator } from "react-navigation-tabs";
@@ -94,6 +97,9 @@ const CategoriesNavigation = createStackNavigator({
   },
   ShoppingCart: {
     screen: ShoppingCartScreen,
+    navigationOptions: {
+      mode: "modal",
+    },
   },
   ItemInCategory: ItemsInCatorgies,
 });

@@ -3,20 +3,18 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Color from "../constants/Colors";
 
-export default function CustomAddToCartButton() {
+export default function CustomAddToCartButton({ handleClick }) {
   return (
-    <TouchableOpacity>
-      <View style={styles.container}>
-        <View>
-          <MaterialCommunityIcons
-            name="cart-plus"
-            size={42}
-            color={Color.secondaryTextColor}
-          />
-        </View>
-        <View>
-          <Text style={styles.text}>Add To Cart</Text>
-        </View>
+    <TouchableOpacity style={styles.container} onPress={handleClick}>
+      <View>
+        <MaterialCommunityIcons
+          name="cart-plus"
+          size={42}
+          color={Color.secondaryTextColor}
+        />
+      </View>
+      <View>
+        <Text style={styles.text}>Add To Cart</Text>
       </View>
     </TouchableOpacity>
   );

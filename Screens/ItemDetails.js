@@ -15,27 +15,26 @@ import ItemDetailsView from "../components/ItemDetailsView";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../components/HeaderButton";
 import CustomAddToCartButton from "../components/CustomAddToCartButton";
+import { addToCart } from "../apiCall/actions/ShoppingCartAction";
 
 const ItemDetails = (props) => {
   const selectedItem = props.navigation.getParam("selectedItem");
-  const scrollRef = useRef();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    scrollRef.current?.scrollTo({
-      y: 0,
-      animated: true,
-    });
-  }, [scrollRef]);
+  const handleOnAddToCart = () => {
+    dispatch(addToCart(selectedItem));
+
+    props.navigation.navigate({ routeName: "ShoppingCart" });
+  };
 
   return (
-    <ScrollView style={styles.imageContainer} ref={scrollRef}>
+    <ScrollView style={styles.imageContainer}>
       <View style={styles.itemContainer}>
         <ItemDetailsCarousel item={selectedItem} />
         <View>
           <ItemDetailsView item={selectedItem} />
         </View>
-        <CustomAddToCartButton />
+        <CustomAddToCartButton handleClick={handleOnAddToCart} />
       </View>
     </ScrollView>
   );
