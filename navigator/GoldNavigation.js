@@ -66,24 +66,24 @@ const CategoriesNavigation = createStackNavigator({
     screen: Categories,
     navigationOptions: {
       headerTitle: "",
-        headerBackground: () => (
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "100%",
-              height: "100%",
-              backgroundColor: Colors.primaryDarkColor,
-            }}
-          >
-            <Image
-              source={require("../assets/logo/logo.png")}
-              resizeMode="contain"
-              style={{ width: 80, top: 12 }}
-            />
-          </View>
-        ),
+      headerBackground: () => (
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+            height: "100%",
+            backgroundColor: Colors.primaryDarkColor,
+          }}
+        >
+          <Image
+            source={require("../assets/logo/logo.png")}
+            resizeMode="contain"
+            style={{ width: 80, top: 12 }}
+          />
+        </View>
+      ),
       headerStyle: {
         backgroundColor: Colors.primaryDarkColor,
       },

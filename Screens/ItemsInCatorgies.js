@@ -106,6 +106,14 @@ ItemsInCatorgies.navigationOptions = (navigationData) => {
 
   return {
     headerTitle: categoryName,
+    headerStyle: {
+      backgroundColor: Colors.primaryDarkColor,
+    },
+    headerTitleStyle: {
+      fontFamily: "cinzel-bold",
+      fontSize: 25,
+      color: "white",
+    },
     headerRight: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item

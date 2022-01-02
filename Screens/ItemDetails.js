@@ -12,6 +12,8 @@ import { useDispatch } from "react-redux";
 import { addProduct } from "../apiCall/actions/ShoppingCartAction";
 import ItemDetailsCarousel from "../components/ItemDetailsCarousel";
 import ItemDetailsView from "../components/ItemDetailsView";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import HeaderButton from "../components/HeaderButton";
 
 const ItemDetails = (props) => {
   const selectedItem = props.navigation.getParam("selectedItem");
@@ -42,17 +44,26 @@ ItemDetails.navigationOptions = (navigationData) => {
 
   return {
     headerTitle: selectedItem.name,
-    // headerRight: () => (
-    //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
-    //     <Item
-    //       title="Cart"
-    //       iconName="cart"
-    //       onPress={() => {
-    //         navigationData.navigation.navigate({ routeName: "ShoppingCart" });
-    //       }}
-    //     />
-    //   </HeaderButtons>
-    // ),
+    headerStyle: {
+      backgroundColor: Colors.primaryDarkColor,
+    },
+    headerTitleStyle: {
+      fontFamily: "cinzel-bold",
+      fontSize: 25,
+      color: "white",
+    },
+
+    headerRight: () => (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Cart"
+          iconName="cart"
+          onPress={() => {
+            navigationData.navigation.navigate({ routeName: "ShoppingCart" });
+          }}
+        />
+      </HeaderButtons>
+    ),
   };
 };
 
