@@ -1,30 +1,39 @@
-import React from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import React, {useState} from "react";
+import { StyleSheet, Text, TextInput, View, Keyboard, TouchableWithoutFeedback } from "react-native";
 import Colors from "../constants/Colors";
 import Card from "../components/Card";
 import HeadingTitle from "../components/HeadingTitle";
 import GoldPrice from "../components/GoldPrice";
+import { useSelector } from "react-redux";
+
 
 export default function Sell() {
-  const getGoldPrice = 10.99;
-  const sellGoldPrice = getGoldPrice - 2.00;
-  const inputValue = 6;
+  const goldPriceT = useSelector((state) => state.goldPrice);
+  const getCurrentSellPrice = goldPriceT.price - 3.6;
+  const [quantity, setInputQuantity] = useState(1);
+
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false} style= {{flex: 1}}>
+
     <View style={styles.screen}>
       <View>
       <Card style={styles.card}>
       <HeadingTitle>Want to Sell Your Gold?</HeadingTitle>
       <Text style={styles.text}>Calcuate the Price below</Text>
-      <Card>
-        <TextInput placeholder="Enter Weight in Grams" keyboardType ={"numeric"}></TextInput>
+      <Card style ={styles.input}>
+
+        <TextInput placeholder="Enter Weight in Grams" onChangeText={(inputValue) => setInputQuantity(inputValue)} keyboardType ={"numeric"}></TextInput>
+
       </Card>
-      <View>
+      <View style ={styles.wrap}>
         <Text style={styles.text}>Total Price: </Text>
-        <Text style={styles.sellPrice}>{sellGoldPrice * inputValue}</Text>
+        <Text style={styles.sellPrice}>{(getCurrentSellPrice * quantity).toFixed(2)}</Text>
         </View>
       </Card>
       </View>
     </View>
+    </TouchableWithoutFeedback>
+
   );
 }
 
@@ -49,5 +58,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     fontFamily: "cinzel-semiBold",
     color: Colors.secondaryTextColor,
+  },
+  input: {
+    width:200,
+  },
+  wrap: {
+  flexDirection: "row",
   }
 });
