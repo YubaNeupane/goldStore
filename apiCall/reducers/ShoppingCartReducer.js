@@ -45,7 +45,6 @@ export default (state = initialState, action) => {
       const stateData = {
         ...state,
       };
-      console.log(action.payload);
 
       const newData = stateData.items.filter(
         (item) => item._id !== action.payload

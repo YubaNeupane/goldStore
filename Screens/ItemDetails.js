@@ -37,7 +37,9 @@ const ItemDetails = (props) => {
         return;
       }
     }
+    setIsAlreadyInCart(false);
   }, []);
+
   useEffect(() => {
     for (let i = 0; i < shoppingCart.count; i++) {
       if (shoppingCart.items[i]._id == selectedItem._id) {
@@ -45,6 +47,7 @@ const ItemDetails = (props) => {
         return;
       }
     }
+    setIsAlreadyInCart(false);
   }, [shoppingCart]);
 
   const handleIsAlreadyInCart = () => {

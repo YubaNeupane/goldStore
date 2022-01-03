@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Linking,
 } from "react-native";
 import Colors from "../constants/Colors";
 import Card from "../components/Card";
@@ -31,6 +32,8 @@ const ShoppingCartScreen = (props) => {
   const shoppingCart = useSelector((state) => state.shoppingCart);
   const goldPriceT = useSelector((state) => state.goldPrice);
   const getCurrentGoldPrice = goldPriceT.price;
+
+  const phoneNumber = "4123778036";
 
   const [totalPrice, setTotalPrice] = useState(0.0);
 
@@ -140,7 +143,10 @@ const ShoppingCartScreen = (props) => {
             </Text>
           </View>
         </View>
-        <TouchableOpacity style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => Linking.openURL(`tel:${phoneNumber}`)}
+        >
           <View>
             <Ionicons name="call" size={42} />
           </View>
