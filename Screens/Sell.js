@@ -12,6 +12,10 @@ export default function Sell() {
   const getCurrentSellPrice = goldPriceT.price - 3.6;
   const [quantity, setInputQuantity] = useState(1);
 
+  function currencyFormat(num) {
+    return "$" + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  }
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false} style= {{flex: 1}}>
 
@@ -27,7 +31,7 @@ export default function Sell() {
       </Card>
       <View style ={styles.wrap}>
         <Text style={styles.text}>Total Price: </Text>
-        <Text style={styles.sellPrice}>{(getCurrentSellPrice * quantity).toFixed(2)}</Text>
+        <Text style={styles.sellPrice}>{currencyFormat(getCurrentSellPrice * quantity)}</Text>
         </View>
       </Card>
       </View>
