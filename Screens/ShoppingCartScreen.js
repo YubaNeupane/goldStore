@@ -55,7 +55,7 @@ const ShoppingCartScreen = (props) => {
       >
         <TouchableOpacity style={styles.buttonContainer}>
           <View>
-            <Ionicons name="call" size={52} />
+            <Ionicons name="call" size={42} />
           </View>
           <View>
             <Text style={styles.buttonText}>CALL TO ORDER</Text>
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   itemContainer: {
     width: width - 20,
     padding: 15,
-    height: 100,
+    height: 150,
     borderBottomWidth: 1,
   },
   buttonContainer: {
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     fontFamily: "cinzel-black",
   },
   image: {
-    width: "20%",
-    height: "100%",
+    width: 130,
+    height: 130,
   },
 });
