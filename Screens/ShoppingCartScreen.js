@@ -2,6 +2,7 @@ import React from "react";
 import {
   Dimensions,
   FlatList,
+  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -22,7 +23,14 @@ const ShoppingCartScreen = (props) => {
   const renderItem = ({ item }) => {
     return (
       <View style={styles.itemContainer}>
-        <Text>{item.name}</Text>
+        <View>
+          <View>
+            <Image source={{ uri: item.thumbNail }} style={styles.image} />
+          </View>
+          <View>
+            <Text>{item.name}</Text>
+          </View>
+        </View>
       </View>
     );
   };
@@ -82,6 +90,7 @@ const styles = StyleSheet.create({
   itemContainer: {
     width: width - 20,
     padding: 15,
+    height: 100,
     borderBottomWidth: 1,
   },
   buttonContainer: {
@@ -96,5 +105,9 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 23,
     fontFamily: "cinzel-black",
+  },
+  image: {
+    width: "20%",
+    height: "100%",
   },
 });
