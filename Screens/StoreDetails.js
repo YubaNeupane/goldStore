@@ -22,6 +22,7 @@ export default function StoreDetails() {
       ios: `maps:0,0?q=${fullAddress}`,
       android: `geo:0,0?q=${fullAddress}`,
     });
+    
 
 
     Linking.openURL(url);
@@ -39,10 +40,13 @@ export default function StoreDetails() {
           }}
         >
             <View style={{flexDirection:"column"}}>
-            <View style={styles.call}>
+            <TouchableOpacity
+          style={styles.call}
+          onPress={() => Linking.openURL(`tel:${"4123778036"}`)}
+        >
             <Ionicons name="call" size={32} />
             <Text style={styles.textColor}>412-377-8036</Text>
-           </View>
+           </TouchableOpacity>
           
           <TouchableOpacity onPress={() => {
               Linking.openURL('https://www.facebook.com/New-Suva-Laxmi-Jewelers-113242651030219')}} style={styles.customButton}>
@@ -119,6 +123,8 @@ const styles = StyleSheet.create({
     shadowColor: "black",
     shadowOpacity: 0.5,
     shadowRadius: 10,
+    padding:5,
+    alignItems:"center",
   },
   mapDirection: {
     flexDirection: "row",
@@ -145,7 +151,9 @@ const styles = StyleSheet.create({
     shadowColor: "black",
     shadowOpacity: 0.5,
     shadowRadius: 10,
-    flexDirection: "row"
+    flexDirection: "row",
+    padding:5,
+    alignItems:"center",
   }
   
 });
