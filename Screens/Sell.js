@@ -9,6 +9,7 @@ import {
   Image,
   ScrollView,
   Dimensions,
+  ActivityIndicator,
 } from "react-native";
 import Colors from "../constants/Colors";
 import Card from "../components/Card";
@@ -32,6 +33,21 @@ export default function Sell() {
       setInputQuantity(1);
     }
   }, [quantity]);
+
+  if (getCurrentSellPrice <= 0) {
+    return (
+      <View
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          flex: 1,
+          backgroundColor: Colors.backgroundViewColor,
+        }}
+      >
+        <ActivityIndicator size="large" color="#00ff00" />
+      </View>
+    );
+  }
 
   return (
     <ScrollView style={styles.screen} contentContainerStyle={styles.contents}>

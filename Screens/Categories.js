@@ -1,5 +1,12 @@
 import React from "react";
-import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  ActivityIndicator,
+} from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import CaterogyGridItem from "../components/CaterogyGridItem";
 import HeaderButton from "../components/HeaderButton";
@@ -9,6 +16,21 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Categories = (props) => {
   const categories = useSelector((state) => state.categories);
+
+  if (categories <= 0) {
+    return (
+      <View
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          flex: 1,
+          backgroundColor: Colors.backgroundViewColor,
+        }}
+      >
+        <ActivityIndicator size="large" color="#00ff00" />
+      </View>
+    );
+  }
 
   const renderGridItem = (item) => {
     return (
