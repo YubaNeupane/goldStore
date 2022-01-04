@@ -77,6 +77,32 @@ const ItemsInCatorgies = (props) => {
     );
   };
 
+  useEffect(() => {
+    if (searchPhrase.length <= 2) {
+      setItemsToDisplay(initalItems.current);
+    } else {
+      setItemsToDisplay(
+        initalItems.current.filter((item) => {
+          const name = item.name.toUpperCase();
+          const weight = item.weight.toUpperCase();
+          const search = searchPhrase.toUpperCase();
+          const price = (
+            parseInt(item.price) +
+            parseInt(item.weight) * getCurrentGoldPrice
+          )
+            .toString()
+            .toUpperCase();
+
+          return (
+            name.includes(search) ||
+            weight.includes(search) ||
+            price.includes(search)
+          );
+        })
+      );
+    }
+  }, [searchPhrase]);
+
   return (
     <View style={styles.screen}>
       <SearchBar
