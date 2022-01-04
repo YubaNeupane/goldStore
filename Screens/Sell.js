@@ -50,8 +50,22 @@ export default function Sell() {
           <View>
             <View style={{ width: width - 50 }}>
               <Card style={styles.card}>
-                <View style={{ height: "70%" }}>
-                  <HeadingTitle>Want to Sell Your Gold?</HeadingTitle>
+                <View
+                  style={{
+                    height: "70%",
+                    width: "100%",
+                    justifyContent: "center",
+                  }}
+                >
+                  <View
+                    style={{
+                      width: "100%",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <HeadingTitle>Want to Sell Your Gold?</HeadingTitle>
+                  </View>
 
                   <View style={{ flex: 1 }}>
                     <Image
@@ -67,6 +81,7 @@ export default function Sell() {
                     width: "100%",
                     justifyContent: "center",
                     alignItems: "center",
+                    marginTop: 5,
                   }}
                 >
                   <Text style={styles.text}>Price Per Gram</Text>
@@ -81,7 +96,6 @@ export default function Sell() {
                   >
                     <TextInput
                       placeholder="Enter Weight in Grams"
-                      value={quantity}
                       onChangeText={(inputValue) =>
                         setInputQuantity(inputValue)
                       }
