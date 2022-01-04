@@ -23,38 +23,50 @@ export default function StoreDetails() {
       android: `geo:0,0?q=${fullAddress}`,
     });
 
-
     Linking.openURL(url);
   };
   return (
-    <ScrollView contentContainerStyle={styles.screen}>
+    <ScrollView contentContainerStyle={styles.screen} style={styles.container}>
       <Card style={styles.card}>
         <HeadingTitle>Contact Information</HeadingTitle>
-        <Image style={styles.image} source={require("../assets/storeImage/store.png")}/>
+        <View style={{ height: 200 }}>
+          <Image
+            style={styles.image}
+            source={require("../assets/storeImage/store.png")}
+          />
+        </View>
+
         <View
           style={{
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
+            margin: 20,
           }}
         >
-            <View style={{flexDirection:"column"}}>
+          <View style={{ flexDirection: "column" }}>
             <View style={styles.call}>
-            <Ionicons name="call" size={32} />
-            <Text style={styles.textColor}>412-377-8036</Text>
-           </View>
-          
-          <TouchableOpacity onPress={() => {
-              Linking.openURL('https://www.facebook.com/New-Suva-Laxmi-Jewelers-113242651030219')}} style={styles.customButton}>
-            <View style={styles.mapDirection}>
-            <MaterialCommunityIcons
-                name="facebook"
-                size={32}
-                color={"white"}
-              />
-              <Text style={styles.textColor}>Facebook</Text>
+              <Ionicons name="call" size={32} />
+              <Text style={styles.textColor}>412-377-8036</Text>
             </View>
-          </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                Linking.openURL(
+                  "https://www.facebook.com/New-Suva-Laxmi-Jewelers-113242651030219"
+                );
+              }}
+              style={styles.customButton}
+            >
+              <View style={styles.mapDirection}>
+                <MaterialCommunityIcons
+                  name="facebook"
+                  size={32}
+                  color={"white"}
+                />
+                <Text style={styles.textColor}>Facebook</Text>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
       </Card>
@@ -101,12 +113,13 @@ export default function StoreDetails() {
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
     alignItems: "center",
+  },
+  container: {
+    flex: 1,
     backgroundColor: Colors.backgroundViewColor,
   },
   card: {
-    marginTop: 10,
     width: "95%",
     backgroundColor: Colors.primaryDarkColor,
   },
@@ -127,16 +140,17 @@ const styles = StyleSheet.create({
   },
   textColor: {
     color: Colors.secondaryTextColor,
-    alignItems:"center",
+    alignItems: "center",
   },
-  image:{
-    height: "40%",
-    width: "95%",
-    alignItems:"center",
-    marginVertical:10,
-    borderRadius:10,
+  image: {
+    height: "100%",
+    width: "100%",
+
+    alignItems: "center",
+    marginVertical: 10,
+    borderRadius: 10,
   },
-  call:{
+  call: {
     marginVertical: 10,
     backgroundColor: "#498ADF",
     alignSelf: "flex-start",
@@ -145,7 +159,6 @@ const styles = StyleSheet.create({
     shadowColor: "black",
     shadowOpacity: 0.5,
     shadowRadius: 10,
-    flexDirection: "row"
-  }
-  
+    flexDirection: "row",
+  },
 });
