@@ -41,10 +41,18 @@ export default function StoreDetails() {
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
-            margin: 20,
+            width: "100%",
+            marginBottom: -15,
           }}
         >
-          <View style={{ flexDirection: "column" }}>
+          <View
+            style={{
+              marginVertical: 15,
+              flexDirection: "row",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
             <TouchableOpacity
               style={styles.call}
               onPress={() => Linking.openURL(`tel:${"4123778036"}`)}
@@ -80,12 +88,18 @@ export default function StoreDetails() {
               style={styles.customButton}
             >
               <View style={styles.mapDirection}>
-                <MaterialCommunityIcons
-                  name="facebook"
-                  size={32}
-                  color={"white"}
+                <Image
+                  source={{
+                    uri: "https://sf-tb-sg.ibytedtos.com/obj/eden-sg/uhtyvueh7nulogpoguhm/tiktok-icon2.png",
+                  }}
+                  style={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: 24,
+                    padding: 5,
+                  }}
                 />
-                <Text style={styles.textColor}>Facebook</Text>
+                <Text style={styles.textColor}>TikTok</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -164,6 +178,7 @@ const styles = StyleSheet.create({
   textColor: {
     color: Colors.secondaryTextColor,
     alignItems: "center",
+    padding: 5,
   },
   image: {
     height: "100%",
