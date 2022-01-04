@@ -1,5 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Button, StyleSheet, Text, View, FlatList } from "react-native";
+import {
+  Button,
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  ActivityIndicator,
+} from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import GoldListItem from "../components/GoldListItem";
 import GoldPrice from "../components/GoldPrice";
@@ -16,6 +23,8 @@ import { getCategories } from "../apiCall/actions/CategoriesActions";
 
 const GoldShop = (props) => {
   const GoldItem = (item) => {};
+
+  const [isLoading, setIsLoading] = useState(true);
 
   const productDetails = useSelector((state) => {
     return state.product;
@@ -34,6 +43,22 @@ const GoldShop = (props) => {
       callOnce.current = true;
     }
   }, [productDetails, callOnce]);
+
+  if (products <= 0) {
+    return (
+      <View
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          flex: 1,
+          backgroundColor: Colors.backgroundViewColor,
+        }}
+      >
+        <ActivityIndicator size="large" color="#00ff00" />
+      </View>
+    );
+  }
+
   return (
     <ScrollView contentContainerStyle={styles.screen} style={styles.container}>
       <GoldPrice />
