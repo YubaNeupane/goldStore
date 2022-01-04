@@ -22,43 +22,86 @@ export default function StoreDetails() {
       ios: `maps:0,0?q=${fullAddress}`,
       android: `geo:0,0?q=${fullAddress}`,
     });
-    
-
 
     Linking.openURL(url);
   };
   return (
-    <ScrollView contentContainerStyle={styles.screen}>
+    <ScrollView contentContainerStyle={styles.screen} style={styles.container}>
       <Card style={styles.card}>
         <HeadingTitle>Contact Information</HeadingTitle>
-        <Image style={styles.image} source={require("../assets/storeImage/store.png")}/>
+        <View style={{ height: 200 }}>
+          <Image
+            style={styles.image}
+            source={require("../assets/storeImage/store.png")}
+          />
+        </View>
+
         <View
           style={{
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
+            width: "100%",
+            marginBottom: -15,
           }}
         >
-            <View style={{flexDirection:"column"}}>
+          <View
+            style={{
+              marginVertical: 15,
+              flexDirection: "row",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
             <TouchableOpacity
-          style={styles.call}
-          onPress={() => Linking.openURL(`tel:${"4123778036"}`)}
-        >
-            <Ionicons name="call" size={32} />
-            <Text style={styles.textColor}>412-377-8036</Text>
-           </TouchableOpacity>
-          
-          <TouchableOpacity onPress={() => {
-              Linking.openURL('https://www.facebook.com/New-Suva-Laxmi-Jewelers-113242651030219')}} style={styles.customButton}>
-            <View style={styles.mapDirection}>
-            <MaterialCommunityIcons
-                name="facebook"
-                size={32}
-                color={"white"}
-              />
-              <Text style={styles.textColor}>Facebook</Text>
-            </View>
-          </TouchableOpacity>
+              style={styles.call}
+              onPress={() => Linking.openURL(`tel:${"4123778036"}`)}
+            >
+              <Ionicons name="call" size={32} />
+              <Text style={styles.textColor}>412-377-8036</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                Linking.openURL(
+                  "https://www.facebook.com/New-Suva-Laxmi-Jewelers-113242651030219"
+                );
+              }}
+              style={styles.customButton}
+            >
+              <View style={styles.mapDirection}>
+                <MaterialCommunityIcons
+                  name="facebook"
+                  size={32}
+                  color={"white"}
+                />
+                <Text style={styles.textColor}>Facebook</Text>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                Linking.openURL(
+                  "https://www.facebook.com/New-Suva-Laxmi-Jewelers-113242651030219"
+                );
+              }}
+              style={styles.customButton}
+            >
+              <View style={styles.mapDirection}>
+                <Image
+                  source={{
+                    uri: "https://sf-tb-sg.ibytedtos.com/obj/eden-sg/uhtyvueh7nulogpoguhm/tiktok-icon2.png",
+                  }}
+                  style={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: 24,
+                    padding: 5,
+                  }}
+                />
+                <Text style={styles.textColor}>TikTok</Text>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
       </Card>
@@ -105,12 +148,13 @@ export default function StoreDetails() {
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
     alignItems: "center",
+  },
+  container: {
+    flex: 1,
     backgroundColor: Colors.backgroundViewColor,
   },
   card: {
-    marginTop: 10,
     width: "95%",
     backgroundColor: Colors.primaryDarkColor,
   },
@@ -123,8 +167,8 @@ const styles = StyleSheet.create({
     shadowColor: "black",
     shadowOpacity: 0.5,
     shadowRadius: 10,
-    padding:5,
-    alignItems:"center",
+    padding: 5,
+    alignItems: "center",
   },
   mapDirection: {
     flexDirection: "row",
@@ -133,16 +177,18 @@ const styles = StyleSheet.create({
   },
   textColor: {
     color: Colors.secondaryTextColor,
-    alignItems:"center",
+    alignItems: "center",
+    padding: 5,
   },
-  image:{
-    height: "40%",
-    width: "95%",
-    alignItems:"center",
-    marginVertical:10,
-    borderRadius:10,
+  image: {
+    height: "100%",
+    width: "100%",
+
+    alignItems: "center",
+    marginVertical: 10,
+    borderRadius: 10,
   },
-  call:{
+  call: {
     marginVertical: 10,
     backgroundColor: "#498ADF",
     alignSelf: "flex-start",
@@ -152,8 +198,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 10,
     flexDirection: "row",
-    padding:5,
-    alignItems:"center",
-  }
-  
+    padding: 5,
+    alignItems: "center",
+  },
 });
