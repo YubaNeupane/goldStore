@@ -50,6 +50,24 @@ const ShoppingCartScreen = (props) => {
     setTotalPrice(temp);
   }, [shoppingCart]);
 
+  if (shoppingCart.items.length == 0) {
+    return (
+      <View style={styles.screen}>
+        <View style={{ flex: 1, justifyContent: "center" }}>
+          <Text
+            style={{
+              fontFamily: "cinzel-bold",
+              fontSize: 50,
+              color: Colors.primaryLightColor,
+            }}
+          >
+            EMPTY CART
+          </Text>
+        </View>
+      </View>
+    );
+  }
+
   const renderItem = ({ item }) => {
     return (
       <View style={styles.itemContainer}>
