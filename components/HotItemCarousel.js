@@ -124,6 +124,9 @@ const CustomCarousel = ({ product, nav }) => {
       sliderWidth={width}
       itemWidth={width}
       renderItem={renderItem}
+      autoplay
+      loop
+      enableMomentum={false}
       onSnapToItem={(index) => setActiveIndex(index)}
     />
   );
