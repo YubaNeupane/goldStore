@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { StyleSheet, Text, TextInput, View, Keyboard, TouchableWithoutFeedback } from "react-native";
+import { StyleSheet, Text, TextInput, View, Keyboard, TouchableWithoutFeedback, Image } from "react-native";
 import Colors from "../constants/Colors";
 import Card from "../components/Card";
 import HeadingTitle from "../components/HeadingTitle";
@@ -22,8 +22,9 @@ export default function Sell() {
     <View style={styles.screen}>
       <View>
       <Card style={styles.card}>
+      <Image style={styles.image} source={require("../assets/storeImage/goldImage.jpeg")}/>
       <HeadingTitle>Want to Sell Your Gold?</HeadingTitle>
-      <Text style={styles.text}>Calcuate the Price below</Text>
+      <Text style={styles.text}>Price Per Gram</Text>
       <Card style ={styles.input}>
 
         <TextInput placeholder="Enter Weight in Grams" onChangeText={(inputValue) => setInputQuantity(inputValue)} keyboardType ={"numeric"}></TextInput>
@@ -65,6 +66,12 @@ const styles = StyleSheet.create({
   },
   input: {
     width:200,
+  },
+  image:{
+    width: "100%",
+    justifyContent: "center",
+    alignItems:"center",
+    borderRadius: 10,
   },
   wrap: {
   flexDirection: "row",
