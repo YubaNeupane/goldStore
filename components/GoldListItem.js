@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     borderWidth: 2,
     borderColor: Colors.primaryLightColor,
+    resizeMode: "contain",
   },
   imageContainer: {},
   infoContainer: {

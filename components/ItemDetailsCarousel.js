@@ -40,7 +40,7 @@ const ItemDetailsCarousel = (props) => {
           source={{ uri: item.image }}
           containerStyle={styles.imageContainer}
           style={styles.image}
-          parallaxFactor={0.01}
+          parallaxFactor={1}
           showSpinner
           fadeDuration={1}
           {...parallaxProps}
