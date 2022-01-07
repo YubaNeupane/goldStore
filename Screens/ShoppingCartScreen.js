@@ -99,6 +99,7 @@ const ShoppingCartScreen = (props) => {
                 dispatch(handleQuanitiyChange(item._id, value))
               }
               minValue={1}
+              maxValue={5}
               iconSize={25}
               editable={false}
               valueType="real"
