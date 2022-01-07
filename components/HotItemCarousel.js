@@ -59,10 +59,10 @@ const CustomCarousel = ({ product, nav }) => {
               source={{
                 uri: item.thumbNail,
               }}
-              resizeMode="cover"
+              resizeMode="stretch"
               style={{
-                width: width,
-                height: 250,
+                width: 350,
+                height: "100%",
               }}
             >
               <View

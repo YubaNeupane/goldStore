@@ -40,7 +40,7 @@ const ItemDetailsCarousel = (props) => {
           source={{ uri: item.image }}
           containerStyle={styles.imageContainer}
           style={styles.image}
-          parallaxFactor={0.3}
+          parallaxFactor={0.01}
           showSpinner
           fadeDuration={1}
           {...parallaxProps}
@@ -106,11 +106,11 @@ const styles = StyleSheet.create({
   imageContainer: {
     flex: 1,
     marginBottom: Platform.select({ ios: 0, android: 1 }), // Prevent a random Android rendering issue
-    backgroundColor: "white",
+    backgroundColor: "red",
     borderRadius: 8,
   },
   image: {
     ...StyleSheet.absoluteFillObject,
-    resizeMode: "cover",
+    resizeMode: "contain",
   },
 });
