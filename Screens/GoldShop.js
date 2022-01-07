@@ -68,7 +68,7 @@ const GoldShop = (props) => {
 
       <HeadingTitle>New Collection</HeadingTitle>
 
-      {products.map((item) => {
+      {products.slice(0, 50).map((item) => {
         return (
           <GoldListItem
             navigation={props.navigation}

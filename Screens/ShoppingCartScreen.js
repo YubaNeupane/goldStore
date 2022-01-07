@@ -170,7 +170,7 @@ const ShoppingCartScreen = (props) => {
             <Ionicons name="call" size={42} />
           </View>
           <View>
-            <Text style={styles.buttonText}>CALL TO ORDER</Text>
+            <Text style={styles.buttonText}>CALL TO GET DISCOUNT</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -217,6 +217,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 23,
     fontFamily: "cinzel-black",
+    textAlign: "center",
   },
   image: {
     width: 100,
