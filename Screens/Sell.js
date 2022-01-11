@@ -10,11 +10,12 @@ import {
   ScrollView,
   Dimensions,
   ActivityIndicator,
+  KeyboardAvoidingView,
+  Platform
 } from "react-native";
 import Colors from "../constants/Colors";
 import Card from "../components/Card";
 import HeadingTitle from "../components/HeadingTitle";
-import GoldPrice from "../components/GoldPrice";
 import { useSelector } from "react-redux";
 
 const { width, height } = Dimensions.get("window");
@@ -50,7 +51,7 @@ export default function Sell() {
   }
 
   return (
-    <ScrollView style={styles.screen} contentContainerStyle={styles.contents}>
+    <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.screen} contentContainerStyle={styles.contents}>
       <View
         style={{
           width: "100%",
@@ -116,8 +117,8 @@ export default function Sell() {
                         setInputQuantity(inputValue)
                       }
                       style={{ width: "100%", height: "100%", padding: 5 }}
-                      keyboardType={"numeric"}
-                    ></TextInput>
+                      keyboardType={"numeric"} returnKeyType = {"done"}
+                    />
                   </View>
                 </View>
 
@@ -132,13 +133,12 @@ export default function Sell() {
           </View>
         </TouchableWithoutFeedback>
       </View>
-    </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
   screen: {
-    //alignItems: "center",
     flex: 1,
     backgroundColor: Colors.backgroundViewColor,
   },
