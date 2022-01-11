@@ -51,12 +51,16 @@ export default function Sell() {
   }
 
   return (
-    <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.screen} contentContainerStyle={styles.contents}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.screen}
+      contentContainerStyle={styles.contents}
+    >
       <View
         style={{
           width: "100%",
           alignItems: "center",
-          marginTop: 100,
+          marginTop: 0,
         }}
       >
         <TouchableWithoutFeedback
@@ -69,7 +73,7 @@ export default function Sell() {
               <Card style={styles.card}>
                 <View
                   style={{
-                    height: "70%",
+                    height: "60%",
                     width: "100%",
                     justifyContent: "center",
                   }}
@@ -84,7 +88,7 @@ export default function Sell() {
                     <HeadingTitle>Want to Sell Your Gold?</HeadingTitle>
                   </View>
 
-                  <View style={{ flex: 1 }}>
+                  <View style={{ flex: 0.5 }}>
                     <Image
                       style={styles.image}
                       source={require("../assets/storeImage/goldImage.jpeg")}
@@ -117,7 +121,8 @@ export default function Sell() {
                         setInputQuantity(inputValue)
                       }
                       style={{ width: "100%", height: "100%", padding: 5 }}
-                      keyboardType={"numeric"} returnKeyType = {"done"}
+                      keyboardType={"numeric"}
+                      returnKeyType={"done"}
                     />
                   </View>
                 </View>
