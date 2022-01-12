@@ -82,7 +82,7 @@ export default function StoreDetails() {
             <TouchableOpacity
               onPress={() => {
                 Linking.openURL(
-                  "https://www.facebook.com/New-Suva-Laxmi-Jewelers-113242651030219"
+                  "https://www.tiktok.com/@suva_laxmi_jewelers"
                 );
               }}
               style={styles.customButton}

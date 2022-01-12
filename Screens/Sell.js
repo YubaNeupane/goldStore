@@ -26,7 +26,14 @@ export default function Sell() {
   const [quantity, setInputQuantity] = useState("1");
 
   function currencyFormat(num) {
-    return "$" + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+if(num > 100000000000000){
+  num = num.toExponential();
+}else{
+  return "$" + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+
+}
+return "$" + num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+
   }
 
   useEffect(() => {
@@ -156,13 +163,13 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primaryDarkColor,
   },
   text: {
-    fontSize: 30,
+    fontSize: 20,
     fontFamily: "cinzel-semiBold",
     color: Colors.secondaryTextColor,
   },
   sellPrice: {
     flexDirection: "row",
-    fontSize: 30,
+    fontSize: 18,
     alignItems: "center",
     justifyContent: "center",
     fontFamily: "cinzel-semiBold",
