@@ -17,7 +17,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 export default function StoreDetails() {
   const openDirection = () => {
-    const fullAddress = "45 Gateway Dr, Mechaanicsburg, PA-17050";
+    const fullAddress = "35 Gateway Dr, Mechaanicsburg, PA-17050";
     const url = Platform.select({
       ios: `maps:0,0?q=${fullAddress}`,
       android: `geo:0,0?q=${fullAddress}`,
