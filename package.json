@@ -10,6 +10,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.4.0",
     "@expo/vector-icons": "^12.0.5",
     "@fortawesome/fontawesome-svg-core": "^1.3.0-beta3",
     "@react-native-community/blur": "^3.6.0",
