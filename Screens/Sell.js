@@ -10,11 +10,12 @@ import {
   ScrollView,
   Dimensions,
   ActivityIndicator,
+  KeyboardAvoidingView,
+  Platform
 } from "react-native";
 import Colors from "../constants/Colors";
 import Card from "../components/Card";
 import HeadingTitle from "../components/HeadingTitle";
-import GoldPrice from "../components/GoldPrice";
 import { useSelector } from "react-redux";
 
 const { width, height } = Dimensions.get("window");
@@ -50,12 +51,16 @@ export default function Sell() {
   }
 
   return (
-    <ScrollView style={styles.screen} contentContainerStyle={styles.contents}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.screen}
+      contentContainerStyle={styles.contents}
+    >
       <View
         style={{
           width: "100%",
           alignItems: "center",
-          marginTop: 100,
+          marginTop: 0,
         }}
       >
         <TouchableWithoutFeedback
@@ -68,7 +73,7 @@ export default function Sell() {
               <Card style={styles.card}>
                 <View
                   style={{
-                    height: "70%",
+                    height: "60%",
                     width: "100%",
                     justifyContent: "center",
                   }}
@@ -83,7 +88,7 @@ export default function Sell() {
                     <HeadingTitle>Want to Sell Your Gold?</HeadingTitle>
                   </View>
 
-                  <View style={{ flex: 1 }}>
+                  <View style={{ flex: 0.5 }}>
                     <Image
                       style={styles.image}
                       source={require("../assets/storeImage/goldImage.jpeg")}
@@ -117,7 +122,8 @@ export default function Sell() {
                       }
                       style={{ width: "100%", height: "100%", padding: 5 }}
                       keyboardType={"numeric"}
-                    ></TextInput>
+                      returnKeyType={"done"}
+                    />
                   </View>
                 </View>
 
@@ -132,13 +138,12 @@ export default function Sell() {
           </View>
         </TouchableWithoutFeedback>
       </View>
-    </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
   screen: {
-    //alignItems: "center",
     flex: 1,
     backgroundColor: Colors.backgroundViewColor,
   },
