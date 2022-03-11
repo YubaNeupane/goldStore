@@ -213,8 +213,10 @@ const styles = StyleSheet.create({
     backgroundColor: "red",
   },
   buttonText: {
-    fontSize: 23,
+    fontSize: 15,
     fontFamily: "cinzel-black",
+    justifyContent: "center",
+    padding: 5,
     textAlign: "center",
   },
   image: {

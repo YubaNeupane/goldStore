@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "goldStore",
+    "name": "New Suva Laxmi Jewelers",
     "slug": "goldStore",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,7 +8,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#171717"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -17,13 +17,24 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier":"com.yubacharlie.goldstore",
+      "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "android": {
+      "package": "com.yubacharlie.goldstore",
+      "versionCode":1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#171717"
+      },
+        "permissions": [
+          "android.permission.READ_CONTACTS",
+          "android.permission.READ_PHONE_STATE",
+          "android.permission.CAMERA",
+          "android.permission.RECORD_AUDIO"
+         ]
+      
     },
     "web": {
       "favicon": "./assets/favicon.png"
