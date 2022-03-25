@@ -1,0 +1,13 @@
+{
+    "type": "service_account",
+    "project_id": "nslj-339017",
+    "private_key_id": "373e2371d58ce4196132cd96d058f4aa4549b39a",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCm1l5tQUiYvb/c\ngSseHp19sPKNTS78a+T0E3XKfM9rVrAWo6EEwzvfkjZghKQBUDTz64DqieaRiHH+\n7wRJ6O/FKWxEdbMEkFdSmp1ISj6knXQQ+JmuZ2jXb/TpjCGzTTCKu2E+/1Gw0/gX\nG+WLnkYkyxEGXTOUUR7f/KEXt93CImKJiipbrZ6GP7Qf73yRDwMRTmxcoAZEZGzt\nMuUtJQhzL/qUssFqoqbeWurjd1Bag6yKL2ZLCjnZEPVu7oIRkUesH3qrn3iRKYVS\nx2kV4QBwRQHKcZEQnAbGWFSOT+fQ1j31yBGopzq3QLEjZgKLxYDuGQUYA0mYE3or\nhyEKHr95AgMBAAECggEAOdNVOTMGcYJbDJdslWzxE06QUy9sWKsg2QQhsIQf9ElA\nkSg3uAnfJ7dqx3tRyO6+28hFj4UqeEi9kinP57on2MNptjTBTpSk34mdeB/bpHy6\nbONtiMhoyzsPvR8H0ziu2Xbm1snxy4M8mu3dWs4J69jCVt1Y8lBHjkTmpOzinNV0\nqD7Xx2q/fmykEpogu4NoZEYNOUSQbOr0IZeIaq9iSMiqZKd4wIFa4zQqdQ3TMOuG\n/SFiVlcRjjCRxe8XSu0hTPh6Ex2NIk0unQBiI2GIHgF/QylE6rpBRBJ0vZntC4TI\nkh80wclmkOA50SYfu2iloPz5PoFAons2isbbvr0uDQKBgQDa5Kw448hqSTYAACbJ\nJxPGYO/Z269+c42n6OzFORx4YfgqvoqGIBC2TMMRLDXJ49SNu4N68gk6GYl7glFP\ntirLy8FCXNE/eBgQ7hqAAeAYO8Ejwzwbc++2/d48CkOhdXtcvs3PchWVfQ9A9nLj\n811DjLjVp+qoUfV2272A4LZl+wKBgQDDHp+TBaficC4W0EVyFdk/X/POHms7Pcs6\nfWt8LIV4Lx488EtEBp8cKphiS6hCtfI8F0IK+YIFJ6bxWQLiVteqs9eqd5W+7o3J\nhoIdyn4UCiqd0KfWsUugK0BIRx1GK+jtSTzVGKUjgWlASOZxJ2uZC0m7kJItIJyz\nIAgfp0uaGwKBgQDUKA9ElIILgin0ljEBhf6EqC/Q2DygMx95Pyk9fr05cLs3srZQ\niYOpLX1jh5Yat9esB7LH1w9aYKYAL67fs5CHNlV6HLwy6BNrVVwZ9bddxYzNPM1l\nTllo42Yii1BBjbyjh8uy5MBGw4+lRzjT92zNq/b6HmYx/j4Lla922lXvQQKBgQDA\nJ39lTdOZF3r8Mp3BjazGUduLqL9XtzJWZr+cqUfEJTr1LnwhARhep8AsRW/uSrrE\n3O7IWhHmu7cXxd4mQvnffX8tvNk3ED2IMrQfXJSvbZeslZlEwJPGp/GFfKtiuMmK\nLW8AOWYgQkkB6wkudHDtZoV1dxnN4WkQqsH1Uk8M8wKBgQCGwzU0+gI2ZokBoMuR\nuOac2UYh34qzAtqAVGzajk5vyoTtdxfTRdbnV4Ixo7XlMgHI9RUJDEJKtKdiDjuO\np21mIcbeFqJWtf5Rwiab0FtPfw7UFXppowgpPFK7ssHkaw8T5ygtmtQiw4Vmh0Fy\npXI7YU9bhFXqIhPOfQCkgP9ZIQ==\n-----END PRIVATE KEY-----\n",
+    "client_email": "new-suva-laxmi-jeweler@nslj-339017.iam.gserviceaccount.com",
+    "client_id": "114680251577257997131",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/new-suva-laxmi-jeweler%40nslj-339017.iam.gserviceaccount.com"
+  }
+  

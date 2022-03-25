@@ -17,12 +17,12 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier":"com.charlieyuba.goldstore",
+      "bundleIdentifier":"com.yubacharlie.goldstore",
       "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "android": {
-      "package": "com.charlieyuba.goldstore",
+      "package": "com.yubacharlie.goldstore",
       "versionCode":1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",

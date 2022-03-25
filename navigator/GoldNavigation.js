@@ -18,6 +18,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 import ShoppingCartScreen from "../Screens/ShoppingCartScreen";
 import ItemsInCatorgies from "../Screens/ItemsInCatorgies";
+import OrderFormScreen from "../Screens/OrderFormScreen";
 
 const defaultHeaderOptions = {
   headerTintColor: "black",
@@ -57,6 +58,9 @@ const GoldNavigator = createStackNavigator(
     },
     ShoppingCart: {
       screen: ShoppingCartScreen,
+    },
+    orderScreen: {
+      screen: OrderFormScreen,
     },
   },
   {
@@ -100,6 +104,7 @@ const CategoriesNavigation = createStackNavigator({
     navigationOptions: {
       mode: "modal",
     },
+    orderScreen: OrderFormScreen,
   },
   ItemInCategory: ItemsInCatorgies,
 });
