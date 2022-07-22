@@ -68,7 +68,7 @@ const OrderFormScreen = (props) => {
 
     setIsDisabled(true);
     emailjs
-      .send("service_1y23oxc", "template_kwlviz1", data, "7dF0c_ukWb5nXzOU1")
+      .send("service_h2meetk", "template_m68kzyi", data, "1l_6f370pe-2oUDeR")
       .then(
         (result) => {
           orderSendAlertBox();
