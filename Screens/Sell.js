@@ -117,7 +117,7 @@ return "$" + num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
                     style={{
                       width: "100%",
                       backgroundColor: "red",
-                      height: 30,
+                      height: 50,
                       backgroundColor: "white",
                       borderRadius: 15,
                     }}
@@ -127,7 +127,7 @@ return "$" + num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
                       onChangeText={(inputValue) =>
                         setInputQuantity(inputValue)
                       }
-                      style={{ width: "100%", height: "100%", padding: 5 }}
+                      style={{ width: "100%", height: "100%", padding: 10 ,color:Colors.primaryDarkColor,fontSize:20}}
                       keyboardType={"numeric"}
                       returnKeyType={"done"}
                     />
