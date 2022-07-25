@@ -27,7 +27,11 @@ function currencyFormat(num) {
   return "$" + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 }
 const ShoppingCartScreen = (props) => {
+<<<<<<< HEAD
   const dispatch = useDispatch()
+=======
+  const dispatch = useDispatch();
+>>>>>>> charlie
   const shoppingCart = useSelector((state) => state.shoppingCart);
   const goldPriceT = useSelector((state) => state.goldPrice);
   const getCurrentGoldPrice = goldPriceT.price;

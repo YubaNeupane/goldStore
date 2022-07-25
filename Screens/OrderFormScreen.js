@@ -104,17 +104,18 @@ const OrderFormScreen = (props) => {
       >
         <TextInput
           placeholder="Enter Name"
+          
           keyboardAppearance="dark"
           returnKeyType="next"
           style={{
             flex: 1,
-            backgroundColor: Colors.secondaryTextColor,
+            backgroundColor: Colors.secondaryDarkColor,
             width: "100%",
-            height: 45,
+            height: 60,
             padding: 15,
             marginVertical: 10,
             borderRadius: 25,
-            color: "black",
+            color: "white",
             shadowRadius: 15,
             shadowColor: "black",
             shadowOffset: { width: 15, height: 10 },
@@ -122,6 +123,7 @@ const OrderFormScreen = (props) => {
           value={name}
           onChangeText={(text) => setName(text)}
         />
+
         <TextInput
           placeholder="Enter Phone Number"
           keyboardType="phone-pad"
@@ -129,9 +131,9 @@ const OrderFormScreen = (props) => {
           returnKeyType="done"
           style={{
             flex: 1,
-            backgroundColor: Colors.secondaryTextColor,
+            backgroundColor: Colors.secondaryDarkColor,
             width: "100%",
-            height: 45,
+            height: 60,
             padding: 15,
             marginVertical: 10,
             borderRadius: 25,
